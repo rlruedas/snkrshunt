@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom'
+
+import HomePage from './components/homepage/homepage'
+import About from './components/about/index'
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Suspense fallback={<div className='font-Montserrat text-white'>Loading...</div>}>
+        <div className='relative h-screen w-screen bg-[#DCBA62] overflow-x-hidden '>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </Suspense>
+    </>
   );
 }
+
 
 export default App;
