@@ -48,8 +48,8 @@ function desktopscreen() {
           <path id="XMLID_1745_" className="s5" d="m110 236.6c0 6.1-5 11.1-11.1 11.1-13.3 0-24.2 10.9-24.2 24.2 0 6.1-5 11.1-11.1 11.1-6.1 0-11.1-5-11.1-11.1 0-25.5 20.7-46.3 46.3-46.3 6.1 0 11.1 4.9 11.2 11z" />
         </svg>
         <section className='flex flex-row '>
-          <Link to="/" className='font-Montserrat font-normal text-[20px] mx-[1em]'>COLLECTIONS</Link>
-          <Link to="/about" className='font-Montserrat font-normal text-[20px] mx-[1em]'>ABOUT</Link>
+          <Link to="/" className='font-Montserrat font-normal text-[20px] mx-[1em] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>COLLECTIONS</Link>
+          <Link to="/about" className='font-Montserrat font-normal text-[20px] mx-[1em] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>ABOUT</Link>
         </section>
       </section>
     </header>

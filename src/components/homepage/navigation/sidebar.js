@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function sidebar() {
     return (
         <>
-            <section className="absolute top-0 w-screen h-screen bg-[#DCBA62] z-20 transform-gpu transition-transform duration-500 translate-x-[100em]" id='_sideBar' >
+            <section className="absolute top-0 w-screen h-screen bg-[#DCBA62] z-50 transform-gpu transition-transform duration-500 translate-x-[100em]" id='_sideBar' >
                 <div className='flex flex-col w-screen h-screen  items-center'>
                     <section className='flex flex-row justify-around items-center gap-[7em] w-full min-h-[100px]'>
                         <>&nbsp;</>
@@ -24,13 +24,11 @@ function sidebar() {
                         </button>
                     </section>
                     <section className='flex flex-col w-screen h-full justify-around items-center font-Montserrat'>
-
                         <ul className='leading-[5em] list-item text-center'  >
-                            <li onClick={() => document.getElementById("_sideBar").classList.add("translate-x-[100em]")}><Link to="/" >COLLECTIONS</Link></li>
-                            <li onClick={() => document.getElementById("_sideBar").classList.add("translate-x-[100em]")}><Link to="/about">ABOUT</Link></li>
+                            <li onClick={() => document.getElementById("_sideBar").classList.add("translate-x-[100em]")}><Link to="#collections"  >COLLECTIONS</Link></li>
+                            <li onClick={() => document.getElementById("_sideBar").classList.add("translate-x-[100em]")}><Link to="/about" >ABOUT</Link></li>
                         </ul>
                         <ul className='text-center m-0 p-0 flex flex-row justify-around w-screen' >
-
                             <li><a href="https://www.facebook.com/"> <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 enableBackground="new 0 0 29.94 29.94"
