@@ -14,6 +14,10 @@ module.exports = {
       fontFamily: {
         Montserrat: ['Montserrat', 'sans-serif']
       },
+      backgroundImage: {
+        'LandingPageBG' : "url('/src/assets/png/LandingPageBG.png')",
+        'BrandPageBG' : "url('/src/assets/png/BrandBG.jpg')"
+      }
     },
 
   },

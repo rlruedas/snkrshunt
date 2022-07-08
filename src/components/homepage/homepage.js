@@ -12,7 +12,7 @@ function HomePage() {
         <>
             <NavBar dimension={size} />
             <LandingPage dimension={size} />
-            <BrandPage id="collections" />
+            <BrandPage  />
             <Footer />
         </>
     )
