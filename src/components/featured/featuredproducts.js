@@ -1,14 +1,17 @@
 import React from 'react'
 
-import FavCarousel from './favcarousel'
+import FavCarousel from './productscarousel'
 
-function hotseller() {
+function FeaturedProducts() {
+
+
+  
   return (
     <>
       <div className="flex flex-col w-screen h-screen justify-center items-center bg-white font-Montserrat" >
         <section className='flex flex-col w-screen flex-[1_1_0%] justify-evenly items-center'>
           <section className='flex flex-row w-screen justify-between'>
-            <span className='text-[60px] transform translate-x-[40px]  -translate-y-[30px]'>💸</span>
+            <span className='text-[60px] transform translate-x-[40px]  '>💸</span>
             <span className='font-semibold text-[12px] max-w-[150px] self-end mr-[5em] '>{`//Find your happy in our new collection of boots & booties 😜//`}</span>
           </section>
           <span className='font-semibold text-[12px] max-w-[150px] self-start ml-[3em]'>{`//Drop your summertime plans this weekend and be here in these new Nikes. . . 👟//`}</span>
@@ -28,9 +31,8 @@ function hotseller() {
           </section>
         </section>
       </div>
-
     </>
   )
 }
 
-export default hotseller
+export default FeaturedProducts

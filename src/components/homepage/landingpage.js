@@ -18,7 +18,7 @@ function landingpage(props) {
           <section className="flex flex-col gap-10 items-center w-[90%] h-[90%] z-10 lg:flex-row justify-center pt-[4em] lg:pb-[0em]  lg:gap-20  lg:justify-center lg:items-center">
             <section className="flex flex-col justify-center items-center ">
               <span className=' font-extrabold text-center text-[30px] 2xl:text-[60px] leading-[30px] 2xl:leading-[73px] '>LET'S BE <br /> STRAIGHTFORWARD</span>
-              <span className='font-medium text-center lg:text-[18px] 2xl:text-[30px] lg:pt-[4em]'>You just want to browse your  <br /> <span className="font-black">SNEAKERS</span></span>
+              <span className='font-medium text-center lg:text-[18px] 2xl:text-[30px] lg:pt-[4em]'>You just want to browse your favorite<br /> <span className="font-black">SNEAKERS</span></span>
             </section>
             <img src={require("../../assets/png/LandingPageBrands.webp")} alt="brandImages" className='rounded-[20px] w-[450px] h-[300] 2xl:w-[614px] 2xl:h-[373px]' />
           </section>
