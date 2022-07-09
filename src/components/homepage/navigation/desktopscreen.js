@@ -59,7 +59,7 @@ function desktopscreen() {
           </svg>
         </a>
         <section className='flex flex-row '>
-          <a href  onClick={handleClick} className='cursor-pointer font-Montserrat font-normal text-[20px] mx-[1em] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>COLLECTIONS</a>
+          <a href="true"  onClick={handleClick} className='cursor-pointer font-Montserrat font-normal text-[20px] mx-[1em] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>COLLECTIONS</a>
           <Link to="/about" className=' font-Montserrat font-normal text-[20px] mx-[1em] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>ABOUT</Link>
         </section>
       </section>
