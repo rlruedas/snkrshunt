@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react'
 import NavBar from './navbar'
 import LandingPage from './landingpage'
 import BrandPage from '../brands/brands'
+import HotSellerPage from '../favorites/hotseller'
 import Footer from './footer'
 
 function HomePage() {
@@ -13,6 +14,7 @@ function HomePage() {
             <NavBar dimension={size} />
             <LandingPage dimension={size} />
             <BrandPage  />
+            <HotSellerPage />
             <Footer />
         </>
     )
