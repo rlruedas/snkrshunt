@@ -14,7 +14,7 @@ function desktopscreen() {
 
 
   return (
-    <header className='absolute top-0 w-screen min-h-[5em] z-10'>
+    <header className='absolute top-0 w-screen min-h-[5em] z-10 backdrop-blur-sm'>
       <section className='flex flex-row relative w-full min-h-[5em] justify-around items-center place-items-center'>
         <a href='/'>
           <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 488" className='w-[80px] h-[80px] '>

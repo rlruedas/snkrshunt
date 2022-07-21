@@ -105,6 +105,8 @@ function brands() {
             </div>
 
           </section>
+          <span className='z-10 self-center text-[#DCBA62]'>More Brands to Come! </span>
+
         </section>
       </div>
 

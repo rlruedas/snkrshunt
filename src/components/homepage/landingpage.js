@@ -16,11 +16,11 @@ function landingpage(props) {
         <div className="flex flex-col justify-center items-center w-screen h-screen 2xl:pt-[5em] ">
 
           <section className="flex flex-col gap-10 items-center w-[90%] h-[90%] z-10 lg:flex-row justify-center pt-[4em] lg:pb-[0em]  lg:gap-20  lg:justify-center lg:items-center">
-            <section className="flex flex-col justify-center items-center ">
-              <span className=' font-extrabold text-center text-[30px] 2xl:text-[60px] leading-[30px] 2xl:leading-[73px] '>LET'S BE <br /> STRAIGHTFORWARD</span>
-              <span className='font-medium text-center lg:text-[18px] 2xl:text-[30px] lg:pt-[4em]'>You just want to browse your favorite<br /> <span className="font-black">SNEAKERS</span></span>
+            <section className="flex flex-col justify-center items-center gap-[4em]">
+              <span className=' font-normal text-center text-[30px] lg:text-[40px] backdrop-blur-sm rounded-lg 2xl:text-[60px] leading-[40px]  2xl:leading-[73px] '>HUNTING YOUR SHOE HAS NEVER BEEN THIS<br /><span className="font-black">EZ</span></span>
+              <span className='font-medium text-center lg:text-[18px] 2xl:text-[30px] backdrop-blur-sm rounded-lg'>You just want to browse your favorite<br /> <span className="font-black">SNEAKERS</span></span>
             </section>
-            <img src={require("../../assets/png/LandingPageBrands.webp")} alt="brandImages" className='rounded-[20px] w-[450px] h-[300] 2xl:w-[614px] 2xl:h-[373px]' />
+            <img src={require("../../assets/png/LandingPageBrands.webp")} alt="brandImages" className='rounded-[10px] w-[450px] h-[300] 2xl:w-[614px] 2xl:h-[373px]' />
           </section>
           <span className="hidden md:block transform -rotate-90 absolute right-0 translate-x-[18em]  font-normal text-[12px] z-10">Disclaimer // This website's purspose is only for you to browse new released sneakers</span>
 
