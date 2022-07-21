@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 function NavBar() {
 
   const size = useWindowDimension();
+  const params = useParams();
 
   const DesktopNavBar = () => {
     return (
       <>
         <div className='flex flex-row sticky justify-center items-center h-[5em] w-screen border-b-2 border-black font-Montserrat' >
-          <img src={require("../../assets/png/logo.png")} alt="logo" className='w-[80px] h-[80px] absolute left-[2em] lg:left-[15em] ' />
+          <a href="/" className="absolute left-[2em] lg:left-[15em] ">
+            <img src={require("../../assets/png/logo.png")} alt="logo" className='w-[80px] h-[80px] ' />
+          </a>
           <div className="flex flex-row items-center gap-[5em] ">
-            <a href="/">MEN</a>
+            <a href={`/products/${params.id}/men`}>MEN</a>
             <span className='text-[30px]'>|</span>
-            <a href="/">WOMEN</a>
+            <a href={`/products/${params.id}/women`}>WOMEN</a>
             <span className='text-[30px]'>|</span>
-            <a href="/">KIDS</a>
+            <a href={`/products/${params.id}/kids`}>KIDS</a>
           </div>
         </div>
 
@@ -34,8 +38,8 @@ function NavBar() {
         sideBar.classList.remove("translate-x-[100%]");
         sideBar.classList.add("translate-x-[0%]");
         menuButton.classList.remove("static", "opacity-100");
-        menuButton.classList.add("hidden","opacity-0");
-        closeButton.classList.remove("hidden" ,"opacity-0");
+        menuButton.classList.add("hidden", "opacity-0");
+        closeButton.classList.remove("hidden", "opacity-0");
         closeButton.classList.add("static", "opacity-100");
       } else {
         sideBar.classList.remove("translate-x-[0%]")
@@ -63,9 +67,9 @@ function NavBar() {
             </svg>
           </button>
           <div className="absolute top-0 flex flex-col right-0 w-[70%] h-screen bg-black text-white font-black justify-center items-center gap-[4em] z-10 product-side-bar transform transition-all duration-200 translate-x-[0%] ">
-            <a href="/">MEN</a>
-            <a href="/">WOMEN</a>
-            <a href="/">KIDS</a>
+            <a href={`/products/${params.id}/men`}>MEN</a>
+            <a href={`/products/${params.id}/women`}>WOMEN</a>
+            <a href={`/products/${params.id}/kids`}>KIDS</a>
           </div>
         </div>
       </>

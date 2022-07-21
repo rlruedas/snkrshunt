@@ -61,7 +61,7 @@ function navbar(props) {
                             </svg>
                         </button>
                     </div>
-                    <section className="absolute top-0 w-screen h-screen bg-[#DCBA62] z-10 transform-gpu transition-transform duration-500 translate-x-[100em] homesidebar" >
+                    <section className="absolute top-0 w-screen h-screen bg-[#DCBA62] z-10 transform-gpu transition-transform duration-500 translate-x-[100%] homesidebar" >
                         <div className='flex flex-col w-screen h-screen  items-center'>
                             <section className='flex flex-col w-screen h-full justify-around items-center font-Montserrat'>
                                 <ul className='leading-[5em] list-item text-center text-[30px]'  >

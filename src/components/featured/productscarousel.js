@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { getProducts } from '../scraper/productscraper';
+import { getProducts } from '../../scraper/productscraper';
 
 function ProductCarousel() {
   const [data, setData] = useState([]);
