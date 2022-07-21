@@ -11,11 +11,10 @@ function landingpage(props) {
 
   return (
     <>
-      <div className='h-screen w-screen font-Montserrat transform-cpu transition-all duration-100' >
-        <div className=" bg-LandingPageBG bg-cover opacity-50 absolute top-0 h-screen w-screen z-0"></div>
-        <div className="flex flex-col justify-center items-center w-screen h-screen 2xl:pt-[5em] ">
-
-          <section className="flex flex-col gap-10 items-center w-[90%] h-[90%] z-10 lg:flex-row justify-center pt-[4em] lg:pb-[0em]  lg:gap-20  lg:justify-center lg:items-center">
+      <div className='min-h-screen w-screen font-Montserrat transform-cpu transition-all duration-100 ' >
+        <div className=" bg-LandingPageBG bg-cover opacity-50 absolute top-0 h-full w-screen z-0"></div>
+        <div className="flex flex-col justify-between items-center w-screen min-h-screen pt-[8em]">
+          <section className="flex flex-col gap-10 items-center w-[90%] h-[90%] z-10 lg:flex-row justify-center lg:pb-[0em]  lg:gap-20  lg:justify-center lg:items-center">
             <section className="flex flex-col justify-center items-center gap-[4em]">
               <span className=' font-normal text-center text-[30px] lg:text-[40px] backdrop-blur-sm rounded-lg 2xl:text-[60px] leading-[40px]  2xl:leading-[73px] '>HUNTING YOUR SHOE HAS NEVER BEEN THIS<br /><span className="font-black">EZ</span></span>
               <span className='font-medium text-center lg:text-[18px] 2xl:text-[30px] backdrop-blur-sm rounded-lg'>You just want to browse your favorite<br /> <span className="font-black">SNEAKERS</span></span>

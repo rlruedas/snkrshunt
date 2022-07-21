@@ -12,7 +12,8 @@ function brands() {
             CHOOSE YOUR BRAND 🤔
           </h1>
           <section className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 w-full gap-[2em] place-items-center'>
-            <div className="flex justify-center items-center bg-white w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] lg:w-[180px] lg:h-[180px] rounded-[15px] hover:scale-105 transform transition-all duration-75 ">
+
+            <a href='/products/adidas' className="flex justify-center items-center bg-white w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] lg:w-[180px] lg:h-[180px] rounded-[15px] hover:scale-105 transform transition-all duration-75 ">
               <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 301 203" className="w-[40px] h-[25px] lg:w-[80px] lg:h-[50px]">
                 <title>adidas-svg</title>
                 <style>
@@ -24,7 +25,8 @@ function brands() {
                 <path id="Layer" fillRule="evenodd" className="s0" d="m222.4 202.7c-14.7 0-26.1-11.8-26.1-26.4 0-14.6 11.4-26.1 26.1-26.1 5.8 0 10.9 1.4 15.3 4.5v-4h12.2v50.9h-12.2v-3.2q-6.7 4.3-15.3 4.3zm-14-26.4c0 8 6.4 14.6 14.7 14.6 7.6 0 14.6-6.6 14.6-14.6 0-7.8-7-14.6-14.6-14.6-8.3 0-14.7 6.8-14.7 14.6zm-29.3-43.1h12.7v68.4h-12.7v-3.2c-3.9 2.9-9 4.3-14.7 4.3-14.7 0-26.8-11.8-26.8-26.4 0-14.6 12.1-26.1 26.8-26.1 5.7 0 10.8 1.4 14.7 4.5zm-29.4 43.1c0 8.1 7 14.7 14.7 14.7 8.3 0 14.7-6.6 14.7-14.7 0-7.7-6.4-14.6-14.7-14.6-7.7 0-14.7 6.9-14.7 14.6z" />
                 <path id="Layer" fillRule="evenodd" className="s0" d="m294 142.9l-1.3-2.8h-1.2v2.8h-1v-6.9h2.9c0.6 0 1.9 0.9 1.9 2.1 0 1.1-0.7 1.7-1.3 2l1.3 2.8m-2.6-6h-1.2v2.3h1.2c1.3 0 1.3-0.3 1.3-1.1 0-0.6 0-1.2-1.3-1.2z" />
               </svg>
-            </div>
+            </a>
+
             <div className="flex justify-center items-center bg-white w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] lg:w-[180px] lg:h-[180px] rounded-[15px] hover:scale-105 transform transition-all duration-75 ">
               <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 193 193" className="w-[50px] h-[50px]">
                 <title>nike-svg</title>
