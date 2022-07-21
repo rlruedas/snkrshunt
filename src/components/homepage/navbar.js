@@ -65,8 +65,8 @@ function navbar(props) {
                         <div className='flex flex-col w-screen h-screen  items-center'>
                             <section className='flex flex-col w-screen h-full justify-around items-center font-Montserrat'>
                                 <ul className='leading-[5em] list-item text-center text-[30px]'  >
-                                    <li onClick={() => { document.querySelector("#brands").scrollIntoView({ behavior: 'smooth' }); setPressed(!isPressed) }}>COLLECTIONS</li>
-                                    <li ><a href="/about" >ABOUT</a></li>
+                                    <li onClick={() => { document.querySelector("#brands").scrollIntoView({ behavior: 'smooth' }); setPressed(!isPressed) }} className="cursor-pointer">COLLECTIONS</li>
+                                    <li ><a href="/about" className="cursor-pointer" >ABOUT</a></li>
                                 </ul>
                                 <ul className='text-center m-0 p-0 flex flex-row justify-around w-screen' >
                                     <li>

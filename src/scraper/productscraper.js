@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const getProducts = async (indexName, params ) => {
+const getProducts = async (indexName, params) => {
     let data = [];
 
     try {

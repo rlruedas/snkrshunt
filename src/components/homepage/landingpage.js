@@ -13,15 +13,15 @@ function landingpage(props) {
     <>
       <div className='min-h-screen w-screen font-Montserrat transform-cpu transition-all duration-100 ' >
         <div className=" bg-LandingPageBG bg-cover opacity-50 absolute top-0 h-full w-screen z-0"></div>
-        <div className="flex flex-col justify-between items-center w-screen min-h-screen pt-[8em]">
+        <div className="flex flex-col justify-end items-center w-screen min-h-screen gap-[7em] pt-[8em] xl:pt-0 ">
           <section className="flex flex-col gap-10 items-center w-[90%] h-[90%] z-10 lg:flex-row justify-center lg:pb-[0em]  lg:gap-20  lg:justify-center lg:items-center">
-            <section className="flex flex-col justify-center items-center gap-[4em]">
-              <span className=' font-normal text-center text-[30px] lg:text-[40px] backdrop-blur-sm rounded-lg 2xl:text-[60px] leading-[40px]  2xl:leading-[73px] '>HUNTING YOUR SHOE HAS NEVER BEEN THIS<br /><span className="font-black">EZ</span></span>
-              <span className='font-medium text-center lg:text-[18px] 2xl:text-[30px] backdrop-blur-sm rounded-lg'>You just want to browse your favorite<br /> <span className="font-black">SNEAKERS</span></span>
+            <section className="flex flex-col justify-start items-center sm:items-start text-center sm:text-justify gap-[2em] ">
+              <span className=' font-light text-[30px] lg:text-[30px] 2xl:text-[50px] leading-[40px]  2xl:leading-[73px] backdrop-blur-[2px]  rounded-lg  '>Looking for your <span className='font-black'>SHOES</span><br/> has never been this <span className="font-black">EASY</span></span>
+              <span className='font-medium lg:text-[12px] 2xl:text-[18px] backdrop-blur-[2px] rounded-lg'>Just browse your favorite <span className="font-black">SNEAKERS</span></span>
             </section>
             <img src={require("../../assets/png/LandingPageBrands.webp")} alt="brandImages" className='rounded-[10px] w-[450px] h-[300] 2xl:w-[614px] 2xl:h-[373px]' />
           </section>
-          <span className="hidden md:block transform -rotate-90 absolute right-0 translate-x-[18em]  font-normal text-[12px] z-10">Disclaimer // This website's purspose is only for you to browse new released sneakers</span>
+          <span className="hidden md:block transform -rotate-90 absolute right-0 translate-x-[18em] -translate-y-[25em]  font-normal text-[12px] z-10">Disclaimer // This website's purspose is only for you to browse new released sneakers</span>
 
           <section className="flex flex-col justify-center items-center z-10 gap-7 ">
             <span className='font-medium text-[12px] lg:text-[18px] 2xl:text-[20px]' >Discover <span className='font-black'>New Releases</span> from brands of your choice </span>
