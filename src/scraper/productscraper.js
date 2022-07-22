@@ -4,8 +4,8 @@ const getProducts = async (indexName, params) => {
     let data = [];
 
     try {
-        const response = await axios.post(`https://2fwotdvm2o-1.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(3.35.1)%3B%20Browser%20(lite)%3B%20react%20(16.14.0)%3B%20react-instantsearch%20(5.7.0)%3B%20JS%20Helper%20(2.28.1)&x-algolia-application-id=2FWOTDVM2O&x-algolia-api-key=ac96de6fef0e02bb95d433d8d5c7038a`,
-            { "requests": [{ "indexName": `${indexName}`, "params": `${params}`}] }, {
+        const response = await axios.post(`https://2fwotdvm2o-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.25.1%3Breact%20(16.9.0)%3Breact-instantsearch%20(6.2.0)%3BJS%20Helper%20(3.1.0)&x-algolia-application-id=2FWOTDVM2O&x-algolia-api-key=ac96de6fef0e02bb95d433d8d5c7038a`,
+            { "requests": [{ "indexName": `${indexName}`, "params": `${params}` }] }, {
             headers: {
                 "accept": "application/json",
                 "accept-language": "en-US,en;q=0.9",
@@ -14,7 +14,7 @@ const getProducts = async (indexName, params) => {
         })
 
         data = response.data.results[0].hits
-        
+
         return data;
 
     } catch (error) {
@@ -22,4 +22,27 @@ const getProducts = async (indexName, params) => {
     }
 }
 
-export { getProducts };
+const getShoeData = async (id) => {
+    let apiLink = `https://www.goat.com/web-api/v1/product_templates/${id}`
+
+
+    try {
+        const response = await axios(apiLink, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            http2: true,
+        })
+
+        console.log(response);
+
+
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+
+
+}
+
+export { getProducts, getShoeData };

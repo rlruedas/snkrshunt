@@ -7,12 +7,13 @@ function ProductCarousel() {
 
 
   useEffect(() => {
-    let indexName = "product_variants_v2_trending_purchase_flight_club"
-    let params = "query=&hitsPerPage=30&maxValuesPerFacet=40&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&distinct=true&filters=collection_slugs%3Anew-releases&facets=%5B%22brand_name%22%2C%22silhouette%22%2C%22presentation_size%22%2C%22size_us_men%22%2C%22size_us_women%22%2C%22size_us_youth%22%2C%22shoe_condition%22%2C%22color%22%2C%22single_gender%22%2C%22category%22%2C%22product_category%22%2C%22designer%22%2C%22collection_slugs%22%2C%22is_under_retail%22%2C%22lowest_price_cents_usd%22%2C%22release_year%22%5D&tagFilters=";
-  
+    let indexName = "product_variants_v2_trending_purchase"
+    let params = "query=sneakers&hitsPerPage=10&maxValuesPerFacet=1&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&distinct=true&filters=collection_slugs%3Amost-wanted-new&facets=%5B%22brand_name%22%2C%22silhouette%22%2C%22presentation_size%22%2C%22size_us_men%22%2C%22size_us_women%22%2C%22size_us_youth%22%2C%22shoe_condition%22%2C%22color%22%2C%22single_gender%22%2C%22category%22%2C%22product_category%22%2C%22designer%22%2C%22collection_slugs%22%2C%22is_under_retail%22%2C%22lowest_price_cents_usd%22%2C%22release_year%22%5D&tagFilters=";
+
     getProducts(indexName, params).then(data => {
       setData(data);
     });
+
   }, [])
 
   //Drag mouse scroll

@@ -9,14 +9,14 @@ function NavBar() {
   const DesktopNavBar = () => {
     return (
       <>
-        <div className='flex flex-row sticky justify-center items-center h-[5em] w-screen border-b-2 border-black font-Montserrat' >
+        <div className='flex flex-row sticky top-0 justify-center items-center h-[5em] w-screen border-b-2 border-black font-Montserrat bg-[#DCBA62] z-20' >
           <a href="/" className="absolute left-[2em] lg:left-[15em] ">
             <img src={require("../../assets/png/logo.png")} alt="logo" className='w-[80px] h-[80px] ' />
           </a>
           <div className="flex flex-row items-center gap-[5em] ">
-            <a href={`/products/${params.id}/men`}>MEN</a>
+            <a href={`/products/${params.id}/men`}>MENS</a>
             <span className='text-[30px]'>|</span>
-            <a href={`/products/${params.id}/women`}>WOMEN</a>
+            <a href={`/products/${params.id}/women`}>WOMENS</a>
             <span className='text-[30px]'>|</span>
             <a href={`/products/${params.id}/kids`}>KIDS</a>
           </div>
@@ -54,11 +54,11 @@ function NavBar() {
 
     return (
       <>
-        <div className='flex flex-row sticky justify-between px-[2em] items-center h-[5em] w-screen border-b-2 border-black font-Montserrat' >
+        <div className='flex flex-row sticky top-0 justify-between px-[2em] items-center h-[5em] w-screen border-b-2 border-black font-Montserrat z-20 bg-[#DCBA62]' >
           <a href='/'>
             <img src={require("../../assets/png/logo.png")} alt="logo" className='w-[80px] h-[80px] left-[15em]' />
           </a >
-          <button onClick={() => setPressed(!isPressed)} className="z-20">
+          <button onClick={() => setPressed(!isPressed)} className="z-30">
             <svg xmlns="http://www.w3.org/2000/svg" className="bi bi-list w-[40px] h-[40px] fill-black opacity-100 transition-all duration-500" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
             </svg>
@@ -66,9 +66,9 @@ function NavBar() {
               <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
             </svg>
           </button>
-          <div className="absolute top-0 flex flex-col right-0 w-[70%] h-screen bg-black text-white font-black justify-center items-center gap-[4em] z-10 product-side-bar transform transition-all duration-200 translate-x-[0%] ">
-            <a href={`/products/${params.id}/men`}>MEN</a>
-            <a href={`/products/${params.id}/women`}>WOMEN</a>
+          <div className="absolute top-0 flex flex-col right-0 w-[70%] h-screen bg-black text-white font-black justify-center items-center gap-[4em] z-20 product-side-bar transform transition-all duration-200 translate-x-[100%] ">
+            <a href={`/products/${params.id}/men`}>MENS</a>
+            <a href={`/products/${params.id}/women`}>WOMENS</a>
             <a href={`/products/${params.id}/kids`}>KIDS</a>
           </div>
         </div>
