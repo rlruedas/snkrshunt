@@ -58,15 +58,11 @@ function Products() {
 
         getProducts(indexName, params).then(data => {
             setData(data.hits)
-
-            console.log(data);
             setNumOfPages(Number(data.nbPages))
 
-            console.log(numOfPages);
-
-            const itemSlug = data.map(item => {
-                return item.slug
-            })
+            // const itemSlug = data.map(item => {
+            //     return item.slug
+            // })
 
             // getShoeData(itemSlug) // AutoScrape Item Data
         });
@@ -96,6 +92,7 @@ function Products() {
                         )) : <></>
                     }
                     </section>
+                <span className='text-black font-extralight text-[10px]'>{`${pageNumber}   . . .   ${numOfPages}`}</span>
                 </section>
                 <Footer />
             </div>
