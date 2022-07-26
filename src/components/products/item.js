@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
-import { getShoeData } from '../../scraper/productscraper'
+
+import { getShoeData } from '../../database/fetch'
 
 function Item() {
   const [data, setData] = useState([])
   const params = useParams();
 
+  // const getProductData = async () => {
+  //   await axios.get(`http://localhost:5000/api/get-shoe-data/${params.id}`)
+  //     .then(function (response) {
 
+  //       setData(response.data);
+  //       // sendDataToDB(response.data);
+
+  //     }).catch(function (err) {
+  //       console.warn('Something went wrong.', err);
+  //     });
+  // }
 
   useEffect(() => {
-    getShoeData(params.id).then(data => {
-      setData(data);
-    })
+    getShoeData(params.id).then(data => setData(data.data))
+    
+    console.log(data);
   }, [])
 
-  
+
 
   return (
     <>
@@ -26,12 +38,10 @@ function Item() {
             {
               data?.productTemplateExternalPictures?.length > 0 ? data.productTemplateExternalPictures.map((item, index) => (
                 <section key={index} className="shrink-0 ">
-                  <img src={item.mainPictureUrl} alt="shoeImage" />
+                  <img src={item} alt="shoeImage" />
                 </section>
               )) : <></>
-
             }
-
           </section>
         </section>
       </div>

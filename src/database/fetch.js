@@ -13,7 +13,7 @@ const getProducts = async (indexName, params) => {
             }
         })
 
-        data = response.data.results[0].hits
+        data = response.data.results[0]
 
         return data;
 
@@ -23,24 +23,16 @@ const getProducts = async (indexName, params) => {
 }
 
 const getShoeData = async (id) => {
-    let apiLink = `https://www.goat.com/web-api/v1/product_templates/${id}`
 
+    let apiLink = `http://localhost:8000/item/${id}`;
 
     try {
-        const response = await axios(apiLink, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            http2: true,
-        })
-
-        console.log(response);
-
-
-        return response.data;
+        const response = await axios.get(apiLink)
+        return response
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
+
 
 
 }
