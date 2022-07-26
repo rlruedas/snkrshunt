@@ -7,6 +7,8 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.6",
     "axios": "^0.27.2",
+    "cloudscraper": "^4.6.0",
+    "got": "^11.8.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",

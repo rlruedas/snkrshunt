@@ -4,7 +4,7 @@ function brands() {
 
 
   return (
-    <div className='relative w-screen h-fit bg-black text-white font-Montserrat py-[5em]' id="brands" >
+    <div className='relative w-screen min-h-fit bg-black text-white font-Montserrat py-[5em]' id="brands" >
       <div className="bg-BrandPageBG bg-cover bg-bottom w-screen min-h-screen absolute bottom-0 z-0 opacity-50" ></div>
       <div className="relative flex flex-col justify-center items-center  z-10">
         <section className='relative flex flex-col w-[70%] h-screen gap-[2em] justify-center items-start' >

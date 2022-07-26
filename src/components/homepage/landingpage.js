@@ -11,7 +11,7 @@ function landingpage(props) {
 
   return (
     <>
-      <div className='min-h-screen w-screen font-Montserrat transform-cpu transition-all duration-100 ' >
+      <div className='min-h-fit w-screen font-Montserrat transform-cpu transition-all duration-100 ' >
         <div className=" bg-LandingPageBG bg-cover opacity-50 absolute top-0 h-full w-screen z-0"></div>
         <div className="flex flex-col justify-end items-center w-screen min-h-screen gap-[7em] pt-[8em] xl:pt-0 ">
           <section className="flex flex-col gap-10 items-center w-[90%] h-[90%] z-10 lg:flex-row justify-center lg:pb-[0em]  lg:gap-20  lg:justify-center lg:items-center">

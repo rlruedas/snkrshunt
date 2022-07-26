@@ -14,11 +14,11 @@ function NavBar() {
             <img src={require("../../assets/png/logo.png")} alt="logo" className='w-[80px] h-[80px] ' />
           </a>
           <div className="flex flex-row items-center gap-[5em] ">
-            <a href={`/products/${params.id}/men`}>MENS</a>
+            <a href={`/products/${params.id}/men`}>MEN</a>
             <span className='text-[30px]'>|</span>
-            <a href={`/products/${params.id}/women`}>WOMENS</a>
+            <a href={`/products/${params.id}/women`}>WOMEN</a>
             <span className='text-[30px]'>|</span>
-            <a href={`/products/${params.id}/kids`}>KIDS</a>
+            <a href={`/products/${params.id}/youth`}>YOUTH</a>
           </div>
         </div>
 
@@ -67,9 +67,9 @@ function NavBar() {
             </svg>
           </button>
           <div className="absolute top-0 flex flex-col right-0 w-[70%] h-screen bg-black text-white font-black justify-center items-center gap-[4em] z-20 product-side-bar transform transition-all duration-200 translate-x-[100%] ">
-            <a href={`/products/${params.id}/men`}>MENS</a>
-            <a href={`/products/${params.id}/women`}>WOMENS</a>
-            <a href={`/products/${params.id}/kids`}>KIDS</a>
+            <a href={`/products/${params.id}/men`}>MEN</a>
+            <a href={`/products/${params.id}/women`}>WOMEN</a>
+            <a href={`/products/${params.id}/youth`}>YOUTH</a>
           </div>
         </div>
       </>
