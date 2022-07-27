@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
-import HomePage from './components/homepage/homepage'
-import Products from './components/products'
-import ProductItem from './components/products/item'
-import About from './components/about/index'
+import HomePage from './pages/home'
+import ProductsPage from './pages/products'
+import ProductItem from './pages/item'
+import About from './pages/about'
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
         <div className='relative h-screen w-screen bg-[#DCBA62] overflow-x-hidden '>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/products/:id" element={<Products />}/>
-            <Route path="/products/:id/:category" element={<Products />}/>
+            <Route path="/products/:id" element={<ProductsPage />}/>
+            <Route path="/products/:id/:category" element={<ProductsPage />}/>
             <Route path="/products/item/:id" element={<ProductItem />} />
             <Route path="/about" element={<About />} />
           </Routes>

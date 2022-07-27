@@ -2,17 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@font-face {
+  font-family: "Vonique";
+  src: url("../assets/fonts/Vonique 64.ttf");
+}
+@font-face {
+  font-family: "BoiledSnakes";
+  src: url("../assets/fonts/BoiledSnakes.ttf");
+}
+@font-face {
+  font-family: "Hotlady";
+  src: url("../assets/fonts/Hotlady.ttf");
+}
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .no-scrollbar {
-    -ms-overflow-style: none; 
-    scrollbar-width: none;  
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.firstParagraph {
+  animation: first 120s linear infinite;
+  
+}
+.secondParagraph {
+  animation: second 80s linear infinite;
+  
+}
+.thirdParagraph {
+  animation: third 100s linear infinite;
+ 
+}
+.fourthParagraph {
+  animation: fourth 180s linear infinite;
+}
+
+@keyframes first {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-66.335%);
+  }
+}
+@keyframes second {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-66.418%);
+  }
+}
+@keyframes third {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-66.403%);
+  }
+}
+@keyframes fourth {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-66.225%);
+  }
 }
