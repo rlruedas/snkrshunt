@@ -4,10 +4,10 @@ import { getProducts } from "../../database/api";
 function ProductCarousel() {
   const [data, setData] = useState([]);
 
-  let indexName = "product_variants_v2_trending_purchase";
-  let params = `query=&hitsPerPage=30&maxValuesPerFacet=40&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&distinct=true&filters=collection_slugs%3Ajust-dropped`;
-
   useEffect(() => {
+    let indexName = "product_variants_v2_trending_purchase";
+    let params = `query=&hitsPerPage=30&maxValuesPerFacet=40&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&distinct=true&filters=collection_slugs%3Ajust-dropped`;
+
     getProducts(indexName, params).then((data) => {
       setData(data.hits);
     });

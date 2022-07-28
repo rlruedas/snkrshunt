@@ -15,9 +15,11 @@
   src: url("../assets/fonts/Hotlady.ttf");
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  background-color: black;
 }
+
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -29,21 +31,39 @@ html {
 }
 
 .firstParagraph {
-  animation: first 120s linear infinite;
+  animation: first 70s linear infinite;
   
 }
 .secondParagraph {
-  animation: second 80s linear infinite;
-  
-}
-.thirdParagraph {
-  animation: third 100s linear infinite;
+  animation: second 100s linear infinite;
  
 }
+.thirdParagraph {
+  animation: third 130s linear infinite;
+  
+}
 .fourthParagraph {
-  animation: fourth 180s linear infinite;
+  animation: fourth 200s linear infinite;
+  
 }
 
+.loader-title {
+  background-image: radial-gradient(closest-corner, #DCBA62 100%, transparent 0);
+  background-position: -15%;
+  background-repeat: no-repeat;
+  background-size: 30px 50px;
+  animation: background-position 2s ease-in-out infinite
+}
+
+
+@keyframes background-position {
+  0% {
+    background-position: -15%;
+  }
+  100% {
+    background-position: 113%;
+  }
+}
 @keyframes first {
   0% {
     transform: translateX(0%);
@@ -73,6 +93,6 @@ html {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-66.225%);
+    transform: translateX(-66.41%);
   }
 }

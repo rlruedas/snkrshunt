@@ -5,6 +5,26 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 function Navbar() {
   const dimension = useWindowDimension();
 
+  const handleScroll = () => {
+    const menuButton = document.querySelector(".open-menu");
+
+    console.log(window.pageYOffset);
+    
+    if(window.pageYOffset > 1700){
+      menuButton.classList.replace("fill-black", "fill-white")
+    }else{
+      menuButton.classList.replace("fill-white", "fill-black")
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, true);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll, true);
+    };
+  }, []);
+
   const HomeDesktopNavBar = () => {
     return (
       <header className="absolute top-0 w-screen min-h-[5em] font-Vonique tracking-widest z-10 backdrop-blur-sm">
@@ -42,6 +62,7 @@ function Navbar() {
   const HomeMobileNavBar = () => {
     const [isPressed, setPressed] = useState(false);
 
+  
     useEffect(() => {
       const sideBar = document.querySelector(".homesidebar");
       const menuButton = document.querySelector(".open-menu");
@@ -60,6 +81,7 @@ function Navbar() {
         closeButton.classList.replace("static", "hidden");
         closeButton.classList.replace("opacity-100", "opacity-0");
       }
+
     }, [isPressed]);
 
     return (
@@ -76,7 +98,7 @@ function Navbar() {
             <button onClick={() => setPressed(!isPressed)} className="z-20">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="static bi bi-list open-menu w-[40px] h-[40px] fill-black opacity-100 transition-all duration-500"
+                className="static bi bi-list open-menu w-[40px] h-[40px] fill-black mix-blend-difference opacity-100 transition-all duration-500"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -86,7 +108,7 @@ function Navbar() {
               </svg>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="hidden bi bi-x-lg close-menu w-[40px] h-[40px] fill-black opacity-0 transition-all duration-500"
+                className="hidden bi bi-x-lg close-menu w-[40px] h-[40px] fill-black opacity-0 transition-all duration-500 "
                 viewBox="0 0 16 16"
               >
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />

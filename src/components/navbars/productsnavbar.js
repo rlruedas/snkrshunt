@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ShoeSizes from "../filters/shoesizes";
 
 function NavBar() {
   const size = useWindowDimension();
@@ -29,14 +30,19 @@ function NavBar() {
   };
 
   const MobileNavBar = () => {
-    const [isPressed, setPressed] = useState(false);
+    const [isMenuPressed, setIsMenuPressed] = useState(true);
+    const [isFiltersPressed, setIsFiltersPressed] = useState(true);
 
-    useEffect(() => {
+    
+
+    const handleMenuClick = () => {
+      setIsMenuPressed(!isMenuPressed);
+
       const sideBar = document.querySelector(".product-side-bar");
       const menuButton = document.querySelector(".bi-list");
       const closeButton = document.querySelector(".bi-x-lg");
 
-      if (isPressed) {
+      if (isMenuPressed) {
         sideBar.classList.replace("translate-x-[100%]", "translate-x-[0%]");
         menuButton.classList.replace("opacity-100", "opacity-0");
         menuButton.classList.replace("static", "hidden");
@@ -49,7 +55,23 @@ function NavBar() {
         closeButton.classList.replace("opacity-0", "opacity-100");
         closeButton.classList.replace("static", "hidden");
       }
-    }, [isPressed]);
+    };
+
+    const handleFilterButton = () => {
+      setIsFiltersPressed(!isFiltersPressed);
+
+      const menuFilters = document.querySelector(".menu-filter");
+
+      if (isFiltersPressed) {
+        // menuFilters.classList.replace("absolute", "static");
+        menuFilters.classList.replace("-translate-y-[3em]", "-translate-y-0");
+        menuFilters.classList.replace("opacity-0", "opacity-100");
+      } else {
+        // menuFilters.classList.replace("static", "absolute");
+        menuFilters.classList.replace("-translate-y-0", "-translate-y-[3em]");
+        menuFilters.classList.replace("opacity-100", "opacity-0");
+      }
+    };
 
     return (
       <>
@@ -61,7 +83,7 @@ function NavBar() {
               className="w-[80px] h-[80px] left-[15em]"
             />
           </a>
-          <button onClick={() => setPressed(!isPressed)} className="z-30">
+          <button onClick={handleMenuClick} className="z-30">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="static bi bi-list w-[40px] h-[40px] fill-black opacity-100 transition-all duration-500"
@@ -80,11 +102,26 @@ function NavBar() {
               <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
             </svg>
           </button>
-          <div className="absolute top-0 flex flex-col right-0 w-[70%] h-screen bg-black text-white text-[30px] tracking-wider font-black justify-center items-center gap-[4em] z-20 product-side-bar transform transition-all duration-200 translate-x-[100%] ">
+          <div className="absolute top-0 right-0 flex flex-col  w-[70%] h-screen bg-black text-white text-[30px] tracking-wider font-black justify-start items-center z-20 product-side-bar transform transition-all duration-200 translate-x-[100%] pt-[2em] gap-[2em] overflow-y-auto ">
             <a href={`/products/${params.id}/men`}>MEN</a>
             <a href={`/products/${params.id}/women`}>WOMEN</a>
             <a href={`/products/${params.id}/youth`}>YOUTH</a>
-            <a href="/" className="text-[14px]">HOME</a>
+            <button
+              onClick={() => {
+                handleFilterButton();
+              }}
+              className="z-30 tracking-widest"
+            >
+              MORE FILTERS
+            </button>
+            <section className="menu-filter w-full  static flex flex-col text-[12px] justify-center items-center opacity-0 transform duration-500 -translate-y-[3em] gap-[1em] ">
+              <ShoeSizes />
+              <section>Color</section>
+              <section>Release Date</section>
+            </section>
+            <a href="/" className="text-[14px] ">
+              HOME
+            </a>
           </div>
         </div>
       </>

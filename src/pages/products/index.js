@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../database/api";
 
 import { ProductsNavBar } from "../../components/navbars";
-import Footer from "../../components/footer/footer";
-import { colors, listOfSizes } from "./utils/filters";
+// import { colors, listOfSizes } from "./utils/filters";
+
+import Footer from "../../components/footer";
+import Loader from "../../components/loader";
+import Filters from "../../components/filters";
 
 function Products() {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [numOfPages, setNumOfPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
-  const [shoeData, setShoeData] = useState([]);
   const urlParams = useParams();
-  const [size, setSize] = useState();
-  const [colorType, setColorType] = useState();
+  // const [size, setSize] = useState();
+  // const [colorType, setColorType] = useState();
   const [releaseYear, setReleaseYear] = useState();
 
   let facetFilters = `&facetFilters=%5B${
@@ -31,94 +34,67 @@ function Products() {
   let params = `distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&query=&filters=${facetFilters}${numericFilters}`;
   let count = 0;
 
-  // const getShoeData = (params) => {
-
-  //     params.forEach(element => {
-
-  //         (async () => {
-  //             await axios.get(`http://localhost:5000/api/get-shoe-data/${element}`)
-  //                 .then(response => {
-  //                     sendDataToDB(response.data)
-  //                 }).catch(error => {
-  //                     console.warn(error.message);
-  //                 })
-
-  //         })();
-  //     })
-
-  // }
-
-  // const sendDataToDB = async (params) => {
-
-  //     const res = await axios({
-  //         method: 'POST',
-  //         url: "http://localhost:8000/create",
-  //         data: { params }
-  //     })
-
-  //     console.log(res.data);
-  //     console.log(count++);
-  // }
-
   useEffect(() => {
     getProducts(indexName, params).then((data) => {
       setData(data.hits);
       setNumOfPages(Number(data.nbPages));
-
-      // const itemSlug = data.map(item => {
-      //     return item.slug
-      // })
-
-      // getShoeData(itemSlug) // AutoScrape Item Data
+      setLoading(false);
     });
   }, []);
 
   return (
     <>
-      <div>
-        <ProductsNavBar />
-        <section className="flex flex-col min-h-fit w-screen justify-center items-center font-Montserrat">
-          <section className="w-[80%] py-[.5em]">
-            <a
-              href={`/products/${urlParams.id}`}
-              className="font-extrabold text-[30px] sm:text-[40px] lg:text-[50px] tracking-[.5em]"
-            >
-              {`${urlParams.id.toUpperCase()} //`}{" "}
-            </a>
-            <span className="font-extrabold text-[20px] sm:text-[50px] tracking-[.5em]">
-              {urlParams.category?.toUpperCase()}
-            </span>
-          </section>
-          <section className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 w-[80%] gap-[4em] place-items-center pb-10 z-0">
-            {data.length > 0 ? (
-              data.map((item, index) => (
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <ProductsNavBar category={urlParams.category} />
+          <section className="flex flex-row relative w-screen h-fit">
+            <Filters category={urlParams.category} />
+            <section className="flex flex-col min-h-fit flex-1 justify-center items-center font-Montserrat pt-[5em] md:pt-0 ">
+              <section className="w-[90%] pt-[.5em]">
                 <a
-                  href={`/products/item/${item.slug}`}
-                  key={index}
-                  className="w-[160px] h-fit lg:w-[250px]  white transorm transition-all duration-75 hover:scale-105 drop-shadow-2xl"
+                  href={`/products/${urlParams.id}`}
+                  className="font-extrabold text-[30px] sm:text-[40px] lg:text-[50px] tracking-[.5em]"
                 >
-                  <img
-                    src={item.main_picture_url}
-                    alt="productImage"
-                    className="w-full h-full rounded-t-md bg-white"
-                  />
-                  <div className="flex flex-col justify-center items-center text-white h-[5em] bg-black rounded-b-md ">
-                    <p className="text-[10px] w-[80%]">{`${item.brand_name}`}</p>
-                    <p className="text-[12px] w-[80%]">{`${item.name}`}</p>
-                  </div>
+                  {`${urlParams?.id?.toUpperCase()} //`}{" "}
                 </a>
-              ))
-            ) : (
-              <></>
-            )}
+                <span className="font-extrabold text-[30px] sm:text-[50px] tracking-[.5em]">
+                  {urlParams?.category?.toUpperCase()}
+                </span>
+              </section>
+              <section className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4  w-[90%] gap-[2em] place-items-center pb-10 z-0">
+                {data.length > 0 ? (
+                  data.map((item, index) => (
+                    <a
+                      href={`/products/item/${item.slug}`}
+                      key={index}
+                      className="h-fit white transform transition-all duration-75 hover:scale-105 hover:border hover:border-black rounded-md drop-shadow-2xl"
+                    >
+                      <img
+                        src={item.main_picture_url}
+                        alt="productImage"
+                        className="w-fit h-fit rounded-t-md bg-white"
+                      />
+                      <div className="flex flex-col justify-center items-center text-white w-full h-fit py-[1em] bg-black rounded-b-md ">
+                        <p className="text-[7px] md:text-[12px] 2xl:text-[14px] w-[80%] ">{`${item.brand_name}`}</p>
+                        <p className="text-[7px] md:text-[9px]  2xl:text-[12px] w-[80%] ">{`${item.name}`}</p>
+                      </div>
+                    </a>
+                  ))
+                ) : (
+                  <></>
+                )}
+              </section>
+              <span className="text-black font-extralight text-[10px]">{`${pageNumber}   . . .   ${numOfPages}`}</span>
+            </section>
           </section>
-          <span className="text-black font-extralight text-[10px]">{`${pageNumber}   . . .   ${numOfPages}`}</span>
-        </section>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      )}
     </>
   );
 }
 
-export default Products
+export default Products;

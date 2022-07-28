@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 function Brands() {
   const [hover, setHover] = useState(true);
@@ -14,6 +14,8 @@ function Brands() {
     setHover(true);
   };
 
+
+  
   return (
     <div
       className="relative w-screen h-fit bg-black text-white py-[5em]"
