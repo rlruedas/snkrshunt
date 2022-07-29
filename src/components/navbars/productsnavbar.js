@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import ShoeSizes from "../filters/shoesizes";
+import ShoeColors from "../filters/color";
+import ShoeReleaseDate from "../filters/releasedate";
+import ClearFilter from "../filters/clearfilter";
 
 function NavBar() {
   const size = useWindowDimension();
   const params = useParams();
+  const [urlFilter] = useSearchParams();
 
   const DesktopNavBar = () => {
     return (
@@ -12,7 +16,7 @@ function NavBar() {
         <div className="flex flex-row sticky top-0 justify-center items-center h-[5em] w-screen border-b-2 border-black tracking-widest font-bold font-Vonique bg-[#DCBA62] z-20">
           <a href="/" className="absolute left-[2em] lg:left-[15em] ">
             <img
-              src={require("../../assets/png/logo.png")}
+              src={require("../../assets/webp/logo.webp")}
               alt="logo"
               className="w-[80px] h-[80px] "
             />
@@ -32,8 +36,6 @@ function NavBar() {
   const MobileNavBar = () => {
     const [isMenuPressed, setIsMenuPressed] = useState(true);
     const [isFiltersPressed, setIsFiltersPressed] = useState(true);
-
-    
 
     const handleMenuClick = () => {
       setIsMenuPressed(!isMenuPressed);
@@ -61,15 +63,17 @@ function NavBar() {
       setIsFiltersPressed(!isFiltersPressed);
 
       const menuFilters = document.querySelector(".menu-filter");
+      const colorOptions = document.querySelector(".list-colors");
+      const colorButton = document.querySelector(".colorbtn-title");
 
       if (isFiltersPressed) {
-        // menuFilters.classList.replace("absolute", "static");
         menuFilters.classList.replace("-translate-y-[3em]", "-translate-y-0");
         menuFilters.classList.replace("opacity-0", "opacity-100");
       } else {
-        // menuFilters.classList.replace("static", "absolute");
         menuFilters.classList.replace("-translate-y-0", "-translate-y-[3em]");
         menuFilters.classList.replace("opacity-100", "opacity-0");
+        colorOptions.classList.replace("flex", "hidden");
+        colorButton.classList.remove("underline");
       }
     };
 
@@ -78,7 +82,7 @@ function NavBar() {
         <div className="flex flex-row fixed top-0 justify-between px-[2em] items-center h-[5em] w-screen border-b-2 border-black font-bold font-Vonique z-20 bg-[#DCBA62]">
           <a href="/">
             <img
-              src={require("../../assets/png/logo.png")}
+              src={require("../../assets/webp/logo.webp")}
               alt="logo"
               className="w-[80px] h-[80px] left-[15em]"
             />
@@ -116,8 +120,9 @@ function NavBar() {
             </button>
             <section className="menu-filter w-full  static flex flex-col text-[12px] justify-center items-center opacity-0 transform duration-500 -translate-y-[3em] gap-[1em] ">
               <ShoeSizes />
-              <section>Color</section>
-              <section>Release Date</section>
+              <ShoeColors />
+              <ShoeReleaseDate />
+              {[...urlFilter].length != 0 ? <ClearFilter /> : <></>}
             </section>
             <a href="/" className="text-[14px] ">
               HOME

@@ -5,33 +5,13 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 function Navbar() {
   const dimension = useWindowDimension();
 
-  const handleScroll = () => {
-    const menuButton = document.querySelector(".open-menu");
-
-    console.log(window.pageYOffset);
-    
-    if(window.pageYOffset > 1700){
-      menuButton.classList.replace("fill-black", "fill-white")
-    }else{
-      menuButton.classList.replace("fill-white", "fill-black")
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, true);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll, true);
-    };
-  }, []);
-
   const HomeDesktopNavBar = () => {
     return (
       <header className="absolute top-0 w-screen min-h-[5em] font-Vonique tracking-widest z-10 backdrop-blur-sm">
         <section className="flex flex-row relative w-full min-h-[5em] justify-around items-center place-items-center">
           <a href="/">
             <img
-              src={require("../../assets/png/logo.png")}
+              src={require("../../assets/webp/logo.webp")}
               alt="logo"
               className="w-[80px] h-[80px] left-[15em]"
             />
@@ -62,7 +42,16 @@ function Navbar() {
   const HomeMobileNavBar = () => {
     const [isPressed, setPressed] = useState(false);
 
-  
+    const handleScroll = () => {
+      const menuButton = document.querySelector(".open-menu");
+
+      if (window.pageYOffset > 1700) {
+        menuButton.classList.replace("fill-black", "fill-white");
+      } else {
+        menuButton.classList.replace("fill-white", "fill-black");
+      }
+    };
+
     useEffect(() => {
       const sideBar = document.querySelector(".homesidebar");
       const menuButton = document.querySelector(".open-menu");
@@ -82,6 +71,11 @@ function Navbar() {
         closeButton.classList.replace("opacity-100", "opacity-0");
       }
 
+      window.addEventListener("scroll", handleScroll, true);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll, true);
+      };
     }, [isPressed]);
 
     return (
@@ -90,7 +84,7 @@ function Navbar() {
           <div className="flex flex-row relative w-full min-h-[5em] gap-[6em] justify-around items-center place-items-center">
             <a href="/">
               <img
-                src={require("../../assets/png/logo.png")}
+                src={require("../../assets/webp/logo.webp")}
                 alt="logo"
                 className="w-[80px] h-[80px] left-[15em]"
               />

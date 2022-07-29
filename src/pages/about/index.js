@@ -6,7 +6,7 @@ function About() {
   return (
     <>
       <HomeNavBar />
-      <section>About</section>
+      <section className="w-screen h-screen flex flex-col justify-center items-center font-Montserrat">About</section>
     </>
   );
 }

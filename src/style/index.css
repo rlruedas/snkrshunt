@@ -20,7 +20,6 @@ html, body {
   background-color: black;
 }
 
-
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
