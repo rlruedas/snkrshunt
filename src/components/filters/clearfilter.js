@@ -7,8 +7,8 @@ function ClearFilter() {
   const [urlFilter] = useSearchParams();
 
   const handleClearFilter = () => {
-    if ([...urlFilter].length != 0) {
-      for (const [param, value] of urlFilter.entries()) {
+    if ([...urlFilter].length !== 0) {
+      for (const [param] of urlFilter.entries()) {
         filter.delete(param);
         setFilter(filter, {
           replace: true,

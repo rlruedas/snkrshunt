@@ -17,7 +17,7 @@
 
 html, body {
   scroll-behavior: smooth;
-  background-color: black;
+  background-color: #DCBA62;
 }
 
 .no-scrollbar::-webkit-scrollbar {

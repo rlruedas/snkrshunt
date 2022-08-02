@@ -13,15 +13,15 @@ function NavBar() {
   const DesktopNavBar = () => {
     return (
       <>
-        <div className="flex flex-row sticky top-0 justify-center items-center h-[5em] w-screen border-b-2 border-black tracking-widest font-bold font-Vonique bg-[#DCBA62] z-20">
-          <a href="/" className="absolute left-[2em] lg:left-[15em] ">
+        <div className="flex flex-row sticky top-0 justify-center items-center h-[5em] w-screen border-b-2 border-black tracking-widest font-normal font-Poppins bg-[#DCBA62] z-50">
+          <a href="/" className="absolute left-[2em] lg:left-[7em] xl:left-[16em] ">
             <img
               src={require("../../assets/webp/logo.webp")}
               alt="logo"
               className="w-[80px] h-[80px] "
             />
           </a>
-          <div className="flex flex-row items-center gap-[5em] ">
+          <div className="relative flex flex-row items-center gap-[5em] ">
             <a href={`/products/${params.id}/men`}>MEN</a>
             <span className="text-[30px]">|</span>
             <a href={`/products/${params.id}/women`}>WOMEN</a>
@@ -79,7 +79,7 @@ function NavBar() {
 
     return (
       <>
-        <div className="flex flex-row fixed top-0 justify-between px-[2em] items-center h-[5em] w-screen border-b-2 border-black font-bold font-Vonique z-20 bg-[#DCBA62]">
+        <div className="flex flex-row fixed top-0 justify-between px-[3em] items-center h-[5em] w-screen border-b-2 border-black font-normal font-Poppins z-20 bg-[#DCBA62]">
           <a href="/">
             <img
               src={require("../../assets/webp/logo.webp")}
@@ -106,7 +106,7 @@ function NavBar() {
               <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
             </svg>
           </button>
-          <div className="absolute top-0 right-0 flex flex-col  w-[70%] h-screen bg-black text-white text-[30px] tracking-wider font-black justify-start items-center z-20 product-side-bar transform transition-all duration-200 translate-x-[100%] pt-[2em] gap-[2em] overflow-y-auto ">
+          <div className="absolute top-0 right-0 flex flex-col  w-[70%] h-screen bg-black text-white text-[24px] tracking-wider font-black justify-start items-center z-20 product-side-bar transform transition-all duration-200 translate-x-[100%] pt-[5em] gap-[2em] overflow-y-auto ">
             <a href={`/products/${params.id}/men`}>MEN</a>
             <a href={`/products/${params.id}/women`}>WOMEN</a>
             <a href={`/products/${params.id}/youth`}>YOUTH</a>
@@ -122,7 +122,7 @@ function NavBar() {
               <ShoeSizes />
               <ShoeColors />
               <ShoeReleaseDate />
-              {[...urlFilter].length != 0 ? <ClearFilter /> : <></>}
+              {[...urlFilter].length !== 0 ? <ClearFilter /> : <></>}
             </section>
             <a href="/" className="text-[14px] ">
               HOME

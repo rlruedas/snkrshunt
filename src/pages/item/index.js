@@ -7,11 +7,15 @@ import { getShoeData } from "../../database/api";
 function Item() {
   const [data, setData] = useState([]);
   const params = useParams();
-  
-  useEffect(() => {
-    getShoeData(params.id).then((data) => setData(data.data));
 
-  }, []);
+  useEffect(() => {
+    try {
+      getShoeData(params.id).then((data) => setData(data.data));
+    } catch (error) {
+      console.log(error.message);
+    }
+    
+  }, [params]);
 
   return (
     <>
@@ -28,7 +32,9 @@ function Item() {
                 </section>
               ))
             ) : (
-              <></>
+              <section className="shrink-0 bg-white ">
+                <img src={data.pictureURL} alt="shoeImage" className="w-[40vw] h-[80vh]" />
+              </section>
             )}
           </section>
         </section>

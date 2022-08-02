@@ -56,10 +56,10 @@ function ProductCarousel() {
                   className="rounded-[10px] "
                 />
               </div>
-              <span className="font-Montserrat font-normal text-[10px] w-[90%]  transform transition-all duration-200  group-hover:text-[#DCBA62] ">
+              <span className="font-Poppins font-normal text-[12px] w-[90%]  transform transition-all duration-200 truncate group-hover:text-[#DCBA62] ">
                 {item.name}
               </span>
-              <span className="font-Montserrat font-normal text-[10px] w-[90%]  transform transition-all duration-200  group-hover:text-[#DCBA62]">
+              <span className="font-Poppins font-normal text-[12px] w-[90%]  transform transition-all duration-200  group-hover:text-[#DCBA62]">
                 {item.gender}
               </span>
             </a>

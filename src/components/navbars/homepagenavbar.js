@@ -7,7 +7,7 @@ function Navbar() {
 
   const HomeDesktopNavBar = () => {
     return (
-      <header className="absolute top-0 w-screen min-h-[5em] font-Vonique tracking-widest z-10 backdrop-blur-sm">
+      <header className="absolute top-0 w-screen min-h-[5em] font-Poppins text-white tracking-widest z-10 backdrop-blur-sm">
         <section className="flex flex-row relative w-full min-h-[5em] justify-around items-center place-items-center">
           <a href="/">
             <img
@@ -23,13 +23,13 @@ function Navbar() {
                   .querySelector("#brands")
                   .scrollIntoView({ behavior: "smooth" });
               }}
-              className="cursor-pointer  font-semibold text-[15px] mx-[2em] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+              className="cursor-pointer  font-normal text-[15px] mx-[2em] hover:text-black"
             >
               COLLECTIONS
             </span>
             <a
               href="/about"
-              className="font-semibold text-[15px] mx-[2em] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+              className="font-normal text-[15px] mx-[2em] hover:text-black"
             >
               ABOUT
             </a>
@@ -45,10 +45,12 @@ function Navbar() {
     const handleScroll = () => {
       const menuButton = document.querySelector(".open-menu");
 
-      if (window.pageYOffset > 1700) {
-        menuButton.classList.replace("fill-black", "fill-white");
-      } else {
+      if (window.pageYOffset < 600) {
         menuButton.classList.replace("fill-white", "fill-black");
+      } else if(window.pageYOffset > 650 && window.pageYOffset < 1600) {
+        menuButton.classList.replace("fill-black", "fill-white");
+      }else {
+        menuButton.classList.replace("fill-black", "fill-white");
       }
     };
 
@@ -111,7 +113,7 @@ function Navbar() {
           </div>
           <section className="absolute top-0 w-screen h-screen bg-[#DCBA62] z-10 transform-gpu transition-transform duration-500 translate-x-[100%] homesidebar">
             <div className="flex flex-col w-screen h-screen  items-center">
-              <section className="flex flex-col w-screen h-full justify-around items-center font-Vonique">
+              <section className="flex flex-col w-screen h-full justify-around items-center font-Poppins">
                 <ul className="leading-[5em] list-item text-center text-[30px]">
                   <li>
                     <a href="/" className="cursor-pointer">

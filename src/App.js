@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // import HomePage from './pages/home'
@@ -13,10 +13,8 @@ const HomePage = lazy(() => import("./pages/home"));
 function App() {
   return (
     <>
-      <Suspense
-        fallback={<Loader />}
-      >
-        <div className="relative bg-[#DCBA62] ">
+      <Suspense fallback={<Loader />}>
+        <div className="relative  ">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/products/:id" element={<ProductsPage />} />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { useSearchParams } from "react-router-dom";
 import { colors } from "./utils/filters";
@@ -7,7 +7,6 @@ function Color() {
   const [isPressed, setIsPressed] = useState(false);
   const [urlFilter] = useSearchParams();
   const [filter, setFilter] = useSearchParams();
-  const [prev, setPrev] = useState()
 
   let setOfColors = colors.properties;
 
@@ -26,16 +25,12 @@ function Color() {
   };
 
   const handleColorOption = (name) => {
-   
-
     if (name === urlFilter.get("color")) {
-      setPrev();
       filter.delete("color");
       setFilter(filter, {
         replace: true,
       });
     } else {
-      setPrev(name);
       filter.set("color", name);
       setFilter(filter, {
         replace: true,
@@ -45,14 +40,17 @@ function Color() {
 
   return (
     <>
-      <button onClick={handleColorBtn} className="colorbtn-title ">
+      <button
+        onClick={handleColorBtn}
+        className="colorbtn-title hover:text-[#DCBA62] sm:hover:text-white"
+      >
         Colors
       </button>
       <section className="list-colors hidden flex-col w-fit justify-center items-end">
         {setOfColors.map((item, index) => (
           <button
             key={index}
-            className="flex flex-row justify-between w-fit items-center gap-2 "
+            className="flex flex-row justify-between w-fit items-center gap-2 hover:text-[#DCBA62] sm:hover:text-white "
             onClick={() => handleColorOption(item.name)}
           >
             <div className={`${item.hex} w-[10px] h-[10px]`}>

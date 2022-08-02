@@ -7,7 +7,6 @@ function ReleaseDate() {
   const [urlFilter] =  useSearchParams();
   const [dateFilter, setDateFilter] = useSearchParams();
   const [isPressed, setIsPressed] = useState(true);
-  const [prev, setPrev] = useState();
 
   const handleReleaseDateBtn = () => {
     setIsPressed(!isPressed);
@@ -26,13 +25,11 @@ function ReleaseDate() {
   const handleSelectedItem = (item) => {
 
     if (item === urlFilter.get("release_year")) {
-      setPrev();
       dateFilter.delete("release_year");
       setDateFilter(dateFilter, {
         replace: true,
       });
     } else {
-      setPrev(item);
       dateFilter.set("release_year", item);
       setDateFilter(dateFilter, {
         replace: true,
@@ -42,7 +39,7 @@ function ReleaseDate() {
 
   return (
     <>
-      <button onClick={handleReleaseDateBtn} className="btn-releasedate">
+      <button onClick={handleReleaseDateBtn} className="btn-releasedate hover:text-[#DCBA62] sm:hover:text-white">
         Release Date
       </button>
       <section className="list-container hidden grid-cols-3 gap-1 ">
@@ -50,7 +47,7 @@ function ReleaseDate() {
           <button
             onClick={() => handleSelectedItem(item)}
             key={index}
-            className="border border-black p-1 hover:bg-orange-900 "
+            className="border border-black p-1 hover:bg-black hover:text-[#DCBA62] "
           >
             {item}
           </button>

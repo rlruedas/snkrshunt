@@ -12,7 +12,7 @@ module.exports = {
         popout: "popout 100ms ease in out",
       },
       fontFamily: {
-        Montserrat: ["Montserrat", "sans-serif"],
+        Poppins: ["Poppins", "sans-serif"],
         Vonique: ["Vonique", "san-serif"],
         BoiledSnakes: ["BoiledSnakes"],
         Hotlady: ["Hotlady"],

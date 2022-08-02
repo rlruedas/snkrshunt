@@ -7,18 +7,7 @@ function ShoeSizes() {
   const [isPressed, setIsPressed] = useState(true);
   const [search, setSearch] = useSearchParams();
   const [urlFilters] = useSearchParams();
-  const [prev, setPrev] = useState();
   const params = useParams();
-
-  const filterShoeSize = () => {
-    params.category === "men"
-      ? setCategory(listOfSizes.men)
-      : params.category === "women"
-      ? setCategory(listOfSizes.women)
-      : params.category === "youth"
-      ? setCategory(listOfSizes.youth)
-      : setCategory(undefined);
-  };
 
   const handleTitleBtn = () => {
     setIsPressed(!isPressed);
@@ -30,12 +19,14 @@ function ShoeSizes() {
     setTimeout(() => {
       if (category === undefined) {
         btnMessage.classList.replace("invisible", "visible");
+        btnTitle.classList.add("underline");
       }
     }, 100);
 
     setTimeout(() => {
       if (category === undefined) {
         btnMessage.classList.replace("visible", "invisible");
+        btnTitle.classList.remove("underline");
       }
     }, 1000);
 
@@ -49,15 +40,12 @@ function ShoeSizes() {
   };
 
   const handleSelectedSize = (item) => {
-
     if (item === Number(urlFilters.get(`size_us_${params.category}`))) {
-      setPrev();
       search.delete(`size_us_${params.category}`);
       setSearch(search, {
         replace: true,
       });
     } else {
-      setPrev(item);
       search.set(`size_us_${params.category}`, item);
       setSearch(search, {
         replace: true,
@@ -66,27 +54,41 @@ function ShoeSizes() {
   };
 
   useEffect(() => {
+    const filterShoeSize = () => {
+      try {
+        params.category === "men"
+          ? setCategory(listOfSizes.men)
+          : params.category === "women"
+          ? setCategory(listOfSizes.women)
+          : params.category === "youth"
+          ? setCategory(listOfSizes.youth)
+          : setCategory(undefined);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
     filterShoeSize();
-  }, []);
+  }, [params]);
 
   return (
     <>
       <button
         onClick={handleTitleBtn}
-        className="tracking-wider size-btn relative "
+        className="tracking-wider size-btn  hover:text-[#DCBA62] sm:hover:text-white "
       >
         Sizes
         <section className="btn-message invisible transform transition-all duration-200 tracking-[.2em]">
-          <span className="w-[200px] h-fit absolute -top-[6em] -left-[7em] md:-left-[3em] lg:-left-[7em] rounded-md bg-[#4D4122] text-center p-1 z-50">
+          <span className="w-[200px] h-fit absolute -top-[7em] -left-[9em] md:-left-[2em] lg:-left-[7em] rounded-md bg-[#DCBA62] text-[9px] text-black text-light text-center p-1 z-50">
             Select <br /> Men || Women || Youth
           </span>
           <svg
-            className="absolute -top-[3em] right-2 transform rotate-45 z-0"
+            className="absolute -top-[3em]  right-2 transform rotate-45 z-0"
             width="15"
             height="15"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="20" height="20" fill="#4D4122" />
+            <rect width="20" height="20" fill="#DCBA62" />
           </svg>
         </section>
       </button>
@@ -100,7 +102,7 @@ function ShoeSizes() {
                 onClick={() => {
                   handleSelectedSize(item);
                 }}
-                className="text-center border border-black "
+                className="text-center border border-black hover:text-[#DCBA62] sm:hover:text-white"
               >
                 {item}
               </button>

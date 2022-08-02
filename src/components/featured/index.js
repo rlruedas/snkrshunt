@@ -22,7 +22,7 @@ function FeaturedProducts() {
         <section className="flex flex-1 flex-col w-screen justify-center items-end">
           <Zoom>
             <section className="flex flex-row justify-center items-center mr-[2em] sm:mr-[5em]">
-              <span className="font-black font-Montserrat text-[30px] sm:text-[50px] md:text-[60px] lg:text-[80px]  tracking-[.2em] sm:self-end text-[#DCBA62]">
+              <span className="font-black font-Poppins text-[30px] sm:text-[50px] md:text-[60px] lg:text-[80px]  tracking-[.2em] sm:self-end text-[#DCBA62]">
                 WHAT'S HOT
               </span>
               <span className="text-[30px] md:text-[40px] lg:text-[70px]">

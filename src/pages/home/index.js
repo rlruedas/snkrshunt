@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from "react";
+import { Suspense} from "react";
 
 import { HomeNavBar } from "../../components/navbars";
 import Landing from "../../components/landing";
