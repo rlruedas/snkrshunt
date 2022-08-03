@@ -7,7 +7,6 @@ import { ProductsNavBar } from "../../components/navbars";
 import Footer from "../../components/footer";
 import Filters from "../../components/filters";
 import MoonLoader from "react-spinners/MoonLoader";
-import Loader from "../../components/loader";
 
 function Products() {
   const [loading, setLoading] = useState(false);
@@ -39,7 +38,23 @@ function Products() {
 
   let indexName = "product_variants_v2";
   let params = `query=&distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&filters=${facetFilters}`;
-  // let pagecount = 0;
+
+  const onNextPage = () => {
+    pageNumber < indexPages.slice(0, 5).length - 1
+      ? setPageNumber(pageNumber + 1)
+      : setPageNumber(pageNumber);
+    window.scrollTo(0, 0);
+  };
+
+  const onPrevPage = () => {
+    pageNumber > 0 ? setPageNumber(pageNumber - 1) : setPageNumber(pageNumber);
+    window.scrollTo(0, 0);
+  };
+
+  useMemo(() => {
+    setPageNumber(0);
+  }, [urlParams])
+
 
   useEffect(() => {
     setLoading(true);
@@ -47,12 +62,9 @@ function Products() {
     getProducts(indexName, params).then((data) => {
       setData(data?.hits);
       setNumOfPages(Number(data?.nbPages));
-      setLoading(false);
+      setLoading(true);
     });
 
-    return () => {
-      setLoading(false);
-    };
   }, [indexName, params]);
 
   return (
@@ -61,7 +73,7 @@ function Products() {
         <ProductsNavBar category={urlParams.category} />
         <section className="flex flex-row relative w-screen justify-center items-start ">
           <Filters category={urlParams.category} />
-          <section className="flex flex-col w-[90vw] justify-center items-center font-Poppins pt-[5em] md:pt-0 z-0">
+          <section className="brand-title flex flex-col w-[90vw] justify-center items-center font-Poppins pt-[5em] md:pt-0 z-0">
             <section className="w-[90%] pt-[.5em] my-5">
               <a
                 href={`/products/${urlParams.id}`}
@@ -110,20 +122,36 @@ function Products() {
           </section>
         </section>
         <section className="flex flex-row justify-center items-center gap-2 font-Poppins">
-          <section>Prev</section>
+          <button onClick={onPrevPage}>Prev</button>
           {indexPages.length > 0 ? (
-            indexPages.slice(0,5).map((numbers, index) => (
-              <section
-                key={index}
-                className="w-[2em] text-center border border-black"
-              >
-                {numbers}
-              </section>
-            ))
+            indexPages.slice(0, 5).map((number, index) => {
+              if (pageNumber + 1 === number) {
+                return (
+                  <button
+                    key={index}
+                    className="w-[2em] text-center  bg-black text-[#DCBA62]"
+                  >
+                    {number}
+                  </button>
+                );
+              }
+              return (
+                <button
+                  onClick={() => {
+                    setPageNumber(index);
+                    window.scrollTo(0, 0);
+                  }}
+                  key={index}
+                  className="w-[2em] text-center text-black"
+                >
+                  {number}
+                </button>
+              );
+            })
           ) : (
             <></>
           )}
-          <section>Next</section>
+          <button onClick={onNextPage}>Next</button>
         </section>
         <Footer />
       </span>
