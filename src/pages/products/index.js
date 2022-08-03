@@ -14,7 +14,7 @@ function Products() {
   const [numOfPages, setNumOfPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
   const [urlFilters] = useSearchParams(); //get the url query filter
-  const urlParams = useParams();
+  const urlParams = useParams(); //get url category
   const indexPages = Array.from({ length: numOfPages }, (v, i) => i + 1);
 
   let shoeSizeFilter = urlFilters.get(`size_us_${urlParams.category}`)
@@ -51,10 +51,10 @@ function Products() {
     window.scrollTo(0, 0);
   };
 
+  //Not the best way to reset state on other variable changes. Need refactoring
   useMemo(() => {
     setPageNumber(0);
   }, [urlParams])
-
 
   useEffect(() => {
     setLoading(true);

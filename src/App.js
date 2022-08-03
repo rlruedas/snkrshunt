@@ -2,13 +2,14 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // import HomePage from './pages/home'
-import ProductsPage from "./pages/products";
+// import ProductsPage from "./pages/products";
 import ProductItem from "./pages/item";
 import About from "./pages/about";
 
 import Loader from "./components/loader";
 
 const HomePage = lazy(() => import("./pages/home"));
+const ProductsPage = lazy(() => import("./pages/products"));
 
 function App() {
   return (
