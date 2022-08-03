@@ -5,9 +5,10 @@ function ProductCarousel() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    let indexName = "product_variants_v2_trending_purchase";
+    let indexName = "product_variants_v2";
     let params = `query=&hitsPerPage=15&maxValuesPerFacet=40&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&distinct=true&filters=collection_slugs%3Ajust-dropped`;
 
+    console.log(data)
     getProducts(indexName, params).then((data) => {
       setData(data.hits);
     });
