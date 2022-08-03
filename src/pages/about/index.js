@@ -17,10 +17,10 @@ function About() {
       </section>
       <section className="w-screen h-fit flex flex-col justify-center items-center font-Poppins gap-[3em] p-8">
         <section className="flex flex-col w-screen h-fit justify-center items-center gap-[3em]">
-          <h1 className="font-bold tracking-wider text-[70px] w-[90vw] ">
+          <h1 className="font-bold tracking-wider text-[70px] w-[80vw] ">
             About
           </h1>
-          <p className="text-justify w-[90vw] px-10 ">
+          <p className="text-justify w-[80vw] ">
             Who we are? Snkrhunt is an entertainment / e-commerce(slight) /
             (your) personal sneaker website. Here, we will provide you the only
             interesting contents, which you will like very much. We know you are
@@ -34,40 +34,29 @@ function About() {
           </p>
         </section>
         <section className="flex flex-col justify-center items-center w-screen h-fit gap-[3em]">
-          <h1 className="text-[50px] font-bold w-[90vw]">Disclaimer</h1>
+          <h1 className="text-[50px] font-bold w-[80vw]">DISCLAIMER</h1>
 
-          <p className="w-[90vw] text-justify px-10">
-            If you require any more information or have any questions about our
-            site's disclaimer, please feel free to contact us by email at
-            snkr.hunt@gmail.com.
+          <p className="w-[80vw] text-justify">Last updated August 03, 2022</p>
+
+          <h2 className="text-[25px] font-bold w-[80vw]">WEBSITE DISCLAIMER</h2>
+
+          <p className="w-[80vw] text-justify ">
+            The information provided by snkrhunt("we," "us," or "our") on{" "}
+            <a href="https://snkrhunt.vercel.app">
+              https://snkrhunt.vercel.app
+            </a>{" "}
+            (thie "Site") is for general informational purposes only. All
+            information on the Site is provided in good faith, however we make
+            no representation or warranty of any kind, express, and implied,
+            regarding accuracy, adequacy, validity, reliability, availablity, or
+            completeness of any information on the Site. UNDER NO CIRCUMSTANCES
+            SHALL WE HAVE ANY LIABILITY TO YOU FOR ANY LOSS OR DAMAGE OF ANY
+            KIND INCURRED AS A RESULT OF THE USE OF THE SITE OR RELIANCE ON ANY
+            INFORMATION PROVIDED ON THE SITE. YOUR USE OF THE SITE AND YOUR
+            RELIANCE ON ANY INFORMATION ON THE SITE IS SOLELY AT YOUR OWN RISK.
           </p>
 
-          <h2 className="text-[25px] font-bold w-[90vw]">
-            Disclaimers for snkrhunt
-          </h2>
-
-          <p className="w-[90vw] text-justify px-10">
-            All the information on this website - snkrhunt.vercel.app - is
-            published in good faith and for general information purpose only.
-            snkrhunt does not make any warranties about the completeness,
-            reliability and accuracy of this information. Any action you take
-            upon the information you find on this website (snkrhunt), is
-            strictly at your own risk. snkrhunt will not be liable for any
-            losses and/or damages in connection with the use of our website.
-          </p>
-
-          <p className="w-[90vw] text-justify px-10">
-            From our website, you can visit other websites by following
-            hyperlinks to such external sites. While we strive to provide only
-            quality links to useful and ethical websites, we have no control
-            over the content and nature of these sites. These links to other
-            websites do not imply a recommendation for all the content found on
-            these sites. Site owners and content may change without notice and
-            may occur before we have the opportunity to remove a link which may
-            have gone 'bad'.
-          </p>
-
-          <p className="w-[90vw] text-justify px-10">
+          <p className="w-[80vw] text-justify">
             Please be also aware that when you leave our website, other sites
             may have different privacy policies and terms which are beyond our
             control. Please be sure to check the Privacy Policies of these sites
@@ -75,18 +64,40 @@ function About() {
             or uploading any information.
           </p>
 
-          <h2 className="w-[90vw] text-[24px] font-bold ">Consent</h2>
+          <h2 className="w-[80vw] text-[24px] font-bold ">
+            EXTERNAL LINKS DISCLAIMER
+          </h2>
 
-          <p className="w-[90vw] text-justify px-10">
+          <p className="w-[80vw] text-justify ">
+            The Site may contain (or you may be sent through the Site) links to
+            other websites or content belonging to or originating from third
+            parties or links to websites and features in banners or other
+            advertising. Such external links are not investigated, monitored, or
+            checked for accuracy, adequacy, validity, reliability, availability,
+            or completeness by us. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR
+            ASSUME RESPONSIBILITY FOR THE ACCURACY OR RELIABILITY OF ANY
+            INFORMATION OFFERED BY THIRD-PARTY WEBSITES LINKED THROUGH THE SITE
+            OR ANY WEBSITE OR FEATURE LINKED IN ANY BANNER OR OTHER ADVERTISING.
+            WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR
+            MONITORING ANY TRANSACTION BETWEEN YOU AND THIRD-PARTY PROVIDERS OF
+            PRODUCTS OR SERVICES.
+          </p>
+
+          <h2 className="w-[80vw] text-[24px] font-bold ">Consent</h2>
+
+          <p className="w-[80vw] text-justify ">
             By using our website, you hereby consent to our disclaimer and agree
             to its terms.
           </p>
 
-          <h2 className="w-[90vw] text-[24px] font-bold ">Update</h2>
+          <h2 className="w-[80vw] text-[24px] font-bold ">Update</h2>
 
-          <p className="w-[90vw] text-justify px-10">
+          <p className="w-[80vw] text-justify ">
             Should we update, amend or make any changes to this document, those
             changes will be prominently posted here.
+          </p>
+          <p className="w-[80vw] text-justify ">
+            This disclaimer was created by Termly's Disclaimer Generator
           </p>
         </section>
       </section>
