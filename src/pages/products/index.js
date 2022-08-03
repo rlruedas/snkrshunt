@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { getProducts } from "../../database/api";
 
@@ -7,6 +7,7 @@ import { ProductsNavBar } from "../../components/navbars";
 import Footer from "../../components/footer";
 import Filters from "../../components/filters";
 import MoonLoader from "react-spinners/MoonLoader";
+import Loader from "../../components/loader";
 
 function Products() {
   const [loading, setLoading] = useState(false);
@@ -37,7 +38,7 @@ function Products() {
   }"],["product_type:sneakers"]${colorFilter}${shoeSizeFilter}${numericFilters}]`;
 
   let indexName = "product_variants_v2";
-  let params = `distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&query=&filters=${facetFilters}`;
+  let params = `query=&distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&filters=${facetFilters}`;
   // let pagecount = 0;
 
   useEffect(() => {
@@ -61,14 +62,14 @@ function Products() {
         <section className="flex flex-row relative w-screen justify-center items-start ">
           <Filters category={urlParams.category} />
           <section className="flex flex-col w-[90vw] justify-center items-center font-Poppins pt-[5em] md:pt-0 z-0">
-            <section className="w-[90%] pt-[.5em]">
+            <section className="w-[90%] pt-[.5em] my-5">
               <a
                 href={`/products/${urlParams.id}`}
-                className="font-extrabold text-[30px] sm:text-[40px] lg:text-[50px] tracking-[.5em] text-[#445849]"
+                className="font-extrabold text-[20px] sm:text-[50px] lg:text-[50px] tracking-[.5em] text-[#373838]"
               >
                 {`${urlParams?.id?.toUpperCase()}`}
               </a>
-              <span className="font-extrabold text-[30px] sm:text-[50px] tracking-[.5em]">
+              <span className="font-extrabold text-[20px] sm:text-[50px] tracking-[.5em]">
                 {"//"}
                 {urlParams?.category?.toUpperCase()}
               </span>
@@ -111,7 +112,7 @@ function Products() {
         <section className="flex flex-row justify-center items-center gap-2 font-Poppins">
           <section>Prev</section>
           {indexPages.length > 0 ? (
-            indexPages.map((numbers, index) => (
+            indexPages.slice(0,5).map((numbers, index) => (
               <section
                 key={index}
                 className="w-[2em] text-center border border-black"

@@ -6,7 +6,7 @@ function ProductCarousel() {
 
   useEffect(() => {
     let indexName = "product_variants_v2_trending_purchase";
-    let params = `query=&hitsPerPage=30&maxValuesPerFacet=40&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&distinct=true&filters=collection_slugs%3Ajust-dropped`;
+    let params = `query=&hitsPerPage=15&maxValuesPerFacet=40&page=0&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&distinct=true&filters=collection_slugs%3Ajust-dropped`;
 
     getProducts(indexName, params).then((data) => {
       setData(data.hits);
@@ -43,7 +43,7 @@ function ProductCarousel() {
         className="flex flex-row overflow-x-scroll snap-x snap-mandatory scroll-smooth scroll-item no-scrollbar h-full w-screen gap-6 before:shrink-0 before:w-[5vw] after:shrink-0 after:w-[5vw]"
       >
         {data.length > 0 ? (
-          data.slice(0, 15).map((item, index) => (
+          data.map((item, index) => (
             <a
               href={`/products/item/${item.slug}`}
               key={index}
