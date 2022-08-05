@@ -4,7 +4,7 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const HomeDesktopNavBar = () => {
   return (
-    <header className="absolute top-0 w-screen min-h-[5em] font-Poppins text-white tracking-widest z-10 backdrop-blur-sm">
+    <section className="absolute top-0 w-screen min-h-[5em] font-Poppins text-white tracking-widest z-10 backdrop-blur-sm">
       <section className="flex flex-row relative w-full min-h-[5em] justify-around items-center place-items-center">
         <a href="/">
           <img
@@ -32,7 +32,7 @@ const HomeDesktopNavBar = () => {
           </a>
         </section>
       </section>
-    </header>
+    </section>
   );
 };
 
@@ -80,7 +80,7 @@ const HomeMobileNavBar = () => {
   return (
     <>
       <section className="fixed top-0 w-screen min-h-[5em] z-30 backdrop-blur-sm ">
-        <div className="flex flex-row relative w-full min-h-[5em] gap-[6em] justify-around items-center place-items-center">
+        <div className="flex flex-row relative w-full min-h-[5em] gap-[6em] justify-between px-[3em] items-center place-items-center">
           <a href="/">
             <img
               src={require("../../assets/webp/logo.webp")}
