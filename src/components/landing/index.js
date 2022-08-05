@@ -1,5 +1,4 @@
 import React from "react";
-import Fade from "react-reveal";
 
 function Landingpage() {
   const handleClick = (e) => {
