@@ -73,24 +73,28 @@ function ShoeSizes() {
 
   return (
     <>
+      <section className="btn-message invisible transform transition-all duration-200 tracking-[.2em] ">
+        <span className="w-[200px] h-fit absolute -top-[4em] -left-[11em] md:-left-[2em] lg:-left-[7em]   rounded-md bg-[#DCBA62] lg:bg-black text-[9px] text-black lg:text-[#DCBA62] text-light text-center p-1 z-50">
+          Select <br /> Men || Women || Youth
+        </span>
+        <svg
+          className="absolute -top-[1em] -right-2 transform rotate-45 z-0"
+          width="15"
+          height="15"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="20"
+            height="20"
+            className="fill-[#DCBA62] sm:fill-black "
+          />
+        </svg>
+      </section>
       <button
         onClick={handleTitleBtn}
-        className="tracking-wider size-btn  hover:text-[#DCBA62] sm:hover:text-white "
+        className="tracking-wider size-btn  hover:text-white sm:hover:text-black hover:opacity-50"
       >
         Sizes
-        <section className="btn-message invisible transform transition-all duration-200 tracking-[.2em]">
-          <span className="w-[200px] h-fit absolute -top-[7em] -left-[9em] md:-left-[2em] lg:-left-[7em] rounded-md bg-[#DCBA62] text-[9px] text-black text-light text-center p-1 z-50">
-            Select <br /> Men || Women || Youth
-          </span>
-          <svg
-            className="absolute -top-[3em]  right-2 transform rotate-45 z-0"
-            width="15"
-            height="15"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="20" height="20" fill="#DCBA62" />
-          </svg>
-        </section>
       </button>
 
       <section className="list-sizes w-[100%] h-full hidden ">

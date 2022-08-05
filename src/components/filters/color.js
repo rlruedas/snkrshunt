@@ -42,7 +42,7 @@ function Color() {
     <>
       <button
         onClick={handleColorBtn}
-        className="colorbtn-title hover:text-[#DCBA62] sm:hover:text-white"
+        className="colorbtn-title hover:text-white md:hover:text-black hover:opacity-50"
       >
         Colors
       </button>

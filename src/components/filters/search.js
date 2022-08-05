@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { debounce } from "lodash";
 
 function Search() {
   const [search, setSearch] = useSearchParams();
   const [focus, setFocus] = useState();
 
-  const onChangeSearch = (e) => {
+  const onChangeSearch = debounce((e) => {
     const text = e.target.value;
 
     if (text.length === 0) {
@@ -19,7 +20,7 @@ function Search() {
         replace: true,
       });
     }
-  };
+  }, 300);
 
   return (
     <div className="flex justify-end items-center ">
@@ -29,7 +30,7 @@ function Search() {
           width="16"
           height="16"
           fill="currentColor"
-          className={"bi bi-search" + (focus ? " animate-bounce": "") }
+          className={"bi bi-search" + (focus ? " animate-bounce" : "")}
           viewBox="0 0 16 16"
         >
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -37,7 +38,10 @@ function Search() {
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent placeholder-black w-[8em] text-black indent-4 focus:outline-none"
+          className={
+            "bg-transparent placeholder-black text-black indent-4 outline-none transform duration-500" +
+            (focus ? " w-[12em]" : " w-[8em]")
+          }
           onChange={onChangeSearch}
           onFocus={() => setFocus(!focus)}
           onBlur={() => setFocus(false)}

@@ -20,11 +20,11 @@ const DesktopNavBar = ({ params }) => {
             />
           </a>
           <div className="relative flex flex-row items-center md:gap-2 lg:gap-5 transform duration-200">
-            <a href={`/products/${id}/men`}>MEN</a>
+            <a href={`/products/${id}/men`} className="hover:opacity-60 transform duration-200">MEN</a>
             <span className="text-[30px]">&nbsp;</span>
-            <a href={`/products/${id}/women`}>WOMEN</a>
+            <a href={`/products/${id}/women`} className="hover:opacity-60 transform duration-200">WOMEN</a>
             <span className="text-[30px]">&nbsp;</span>
-            <a href={`/products/${id}/youth`}>YOUTH</a>
+            <a href={`/products/${id}/youth`} className="hover:opacity-60 transform duration-200">YOUTH</a>
           </div>
           <Search />
         </section>

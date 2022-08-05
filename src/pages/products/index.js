@@ -15,7 +15,9 @@ function Products() {
   const [pageNumber, setPageNumber] = useState(0);
   const [urlFilters] = useSearchParams(); //get the url query filter
   const urlParams = useParams(); //get url category
-  const indexPages = Array.from({ length: numOfPages }, (v, i) => i + 1);
+  const indexPages = useMemo(() => {
+    return Array.from({ length: numOfPages }, (v, i) => i + 1);
+  }, [numOfPages]);
 
   let shoeSizeFilter = urlFilters.get(`size_us_${urlParams.category}`)
     ? `,["size_us_${urlParams.category}:${urlFilters.get(
@@ -32,13 +34,17 @@ function Products() {
 
   // filter parameters
   let facetFilters = `&facetFilters=[${
-    urlParams?.category ? `["single_gender:` + urlParams.category + `"],` : ""
+    urlParams.category ? `["single_gender:` + urlParams.category + `"],` : ""
   }["brand_name:${
     urlParams.id
   }"],["product_type:sneakers"]${colorFilter}${shoeSizeFilter}${numericFilters}]`;
 
   let indexName = "product_variants_v2";
-  let params = `query=${query}&distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&filters=${facetFilters}`;
+  let params = useMemo(() => {
+    if (numOfPages === 1) setPageNumber(0);
+    
+    return `query=${query}&distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&filters=${facetFilters}`;
+  }, [facetFilters, pageNumber, numOfPages, query]);
 
   const onNextPage = () => {
     pageNumber < indexPages.slice(0, 5).length - 1
@@ -52,18 +58,13 @@ function Products() {
     window.scrollTo(0, 0);
   };
 
-  //Not the best way to reset state on other variable changes. Need refactoring
-  useMemo(() => {
-    setPageNumber(0);
-  }, [urlParams]);
-
   useEffect(() => {
     setLoading(true);
 
     getProducts(indexName, params).then((data) => {
       setData(data?.hits);
       setNumOfPages(Number(data?.nbPages));
-      setLoading(true);
+      setLoading(false);
     });
   }, [indexName, params]);
 
@@ -121,37 +122,61 @@ function Products() {
             </section>
           </section>
         </section>
-        <section className="flex flex-row justify-center items-center gap-2 font-Poppins">
-          <button onClick={onPrevPage}>Prev</button>
-          {indexPages.length > 0 ? (
-            indexPages.slice(0, 5).map((number, index) => {
-              if (pageNumber + 1 === number) {
+        <section className="flex flex-row justify-center items-center gap-5 h-[5em] font-Poppins">
+          <button onClick={onPrevPage}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="bi bi-arrow-left fill-black w-[25px] h-[25px] hover:opacity-50"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+              />
+            </svg>
+          </button>
+          <section className="flex flex-row ">
+            {indexPages.length > 0 ? (
+              indexPages.slice(0, 5).map((number, index) => {
+                if (pageNumber + 1 === number) {
+                  return (
+                    <button
+                      key={index}
+                      className="w-[2em] text-center  bg-black text-[#DCBA62] "
+                    >
+                      {number}
+                    </button>
+                  );
+                }
                 return (
                   <button
+                    onClick={() => {
+                      setPageNumber(index);
+                      window.scrollTo(0, 0);
+                    }}
                     key={index}
-                    className="w-[2em] text-center  bg-black text-[#DCBA62]"
+                    className="w-[2em] text-center text-black hover:border hover:border-black"
                   >
                     {number}
                   </button>
                 );
-              }
-              return (
-                <button
-                  onClick={() => {
-                    setPageNumber(index);
-                    window.scrollTo(0, 0);
-                  }}
-                  key={index}
-                  className="w-[2em] text-center text-black"
-                >
-                  {number}
-                </button>
-              );
-            })
-          ) : (
-            <></>
-          )}
-          <button onClick={onNextPage}>Next</button>
+              })
+            ) : (
+              <></>
+            )}
+          </section>
+          <button onClick={onNextPage}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="bi bi-arrow-right fill-black w-[25px] h-[25px] hover:opacity-50"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+              />
+            </svg>
+          </button>
         </section>
         <Footer />
       </span>

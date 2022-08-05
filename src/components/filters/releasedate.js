@@ -39,7 +39,7 @@ function ReleaseDate() {
 
   return (
     <>
-      <button onClick={handleReleaseDateBtn} className="btn-releasedate hover:text-[#DCBA62] sm:hover:text-white">
+      <button onClick={handleReleaseDateBtn} className="btn-releasedate hover:text-white sm:hover:text-black hover:opacity-50">
         Release Date
       </button>
       <section className="list-container hidden grid-cols-3 gap-1 ">
