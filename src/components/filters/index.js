@@ -25,11 +25,13 @@ function Filters() {
 
   return (
     <div className="filter-wrapper flex justify-end items-center sticky left-0 top-0 h-screen  w-[15vw] text-black z-20">
-      <section className="flex flex-col font-medium font-Poppins justify-center items-end text-[12px]">
+      <section className="flex flex-col font-medium font-Poppins justify-center items-end text-[12px] mt-[5em]">
         <span className="text-[15px]">More Filters</span>
         <ShoeSizes />
         <ShoeColors />
         <ShoeReleaseDate />
+        <button>Price (Low-High)</button>
+        <button>Price (High-Low)</button>
         {[...urlFilter].length !== 0 ? <ClearFilter /> : <></>}
       </section>
     </div>

@@ -28,6 +28,7 @@ function Products() {
   let numericFilters = urlFilters.get(`release_year`)
     ? `,["release_year:${urlFilters.get(`release_year`)}"]`
     : "";
+  let query = urlFilters.get("query") ?? "";
 
   // filter parameters
   let facetFilters = `&facetFilters=[${
@@ -37,7 +38,7 @@ function Products() {
   }"],["product_type:sneakers"]${colorFilter}${shoeSizeFilter}${numericFilters}]`;
 
   let indexName = "product_variants_v2";
-  let params = `query=&distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&filters=${facetFilters}`;
+  let params = `query=${query}&distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&filters=${facetFilters}`;
 
   const onNextPage = () => {
     pageNumber < indexPages.slice(0, 5).length - 1
@@ -54,7 +55,7 @@ function Products() {
   //Not the best way to reset state on other variable changes. Need refactoring
   useMemo(() => {
     setPageNumber(0);
-  }, [urlParams])
+  }, [urlParams]);
 
   useEffect(() => {
     setLoading(true);
@@ -64,7 +65,6 @@ function Products() {
       setNumOfPages(Number(data?.nbPages));
       setLoading(true);
     });
-
   }, [indexName, params]);
 
   return (

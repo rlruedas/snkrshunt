@@ -13,26 +13,25 @@ function Landingpage() {
       <div className="min-h-fit w-screen font-Montserrat  transform-cpu transition-all duration-100 overflow-hidden">
         <div className=" bg-LandingPageBG bg-cover opacity-60 fixed top-0 h-full w-screen z-0"></div>
         <div className="flex flex-col justify-center items-center w-screen min-h-screen  gap-20 pt-[8em] ">
-          <Fade left cascade>
-            <section className="flex flex-col items-center w-[90%] h-[90%] z-30 lg:flex-row justify-center lg:gap-2 transform ">
-              <section className="flex flex-col max-w-[600px] justify-center items-center  gap-[2em] backdrop-blur-sm  transform p-10 rounded-lg ">
-                <span className=" font-extrabold font-Poppins text-left text-white lg:text-start text-[30px]   lg:text-[50px] 2xl:text-[60px] md:leading-[1em] 2xl:leading-[1em] ">
-                  People make <span className="text-black">Shoe</span> contact before <span className="text-black">Eye</span> contact
-                </span>
-                <span className="font-light font-Poppins max-w-[500px]  text-justify leading-2 lg:text-start text-[10px] lg:text-[14px]  2xl:text-[18px] tracking-widest">
-                  Just browse your favorite sneakers and discover new releases
-                  from brands of your choice{" "}
-                </span>
-              </section>
-              <section className="flex flex-col max-w-[700px]">
-                <img
-                  src={require("../../assets/png/LandingPageBrands.webp")}
-                  alt="brandImages"
-                  className="rounded-[10px] w-[300px] h-[200px] sm:w-[400px] sm:h-[250px]"
-                />
-              </section>
+          <section className="flex flex-col items-center w-[90%] h-[90%] z-30 lg:flex-row justify-center lg:gap-2 transform ">
+            <section className="flex flex-col max-w-[600px] justify-center items-center  gap-[2em] backdrop-blur-sm  transform p-10 rounded-lg ">
+              <span className=" font-extrabold font-Poppins text-left text-white lg:text-start text-[30px]   lg:text-[50px] 2xl:text-[60px] md:leading-[1em] 2xl:leading-[1em] ">
+                People make <span className="text-black">Shoe</span> contact
+                before <span className="text-black">Eye</span> contact
+              </span>
+              <span className="font-light font-Poppins max-w-[500px]  text-justify leading-2 lg:text-start text-[10px] lg:text-[14px]  2xl:text-[18px] tracking-widest">
+                Just browse your favorite sneakers and discover new releases
+                from brands of your choice{" "}
+              </span>
             </section>
-          </Fade>
+            <section className="flex flex-col max-w-[700px]">
+              <img
+                src={require("../../assets/png/LandingPageBrands.webp")}
+                alt="brandImages"
+                className="rounded-[10px] w-[300px] h-[200px] sm:w-[400px] sm:h-[250px]"
+              />
+            </section>
+          </section>
           <section className="flex flex-col justify-center items-center z-30 gap-2 ">
             <span className="font-bold font-Poppins max-w-[500px] text-justify lg:text-[18px] tracking-widest 2xl:text-[18px]  rounded-lg">
               Click the Arrow!
