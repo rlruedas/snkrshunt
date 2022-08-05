@@ -33,19 +33,16 @@ function Landingpage() {
             </section>
           </section>
           <section className="flex flex-col justify-center items-center z-30 gap-2 ">
-            <span className="font-bold font-Poppins max-w-[500px] text-justify lg:text-[18px] tracking-widest 2xl:text-[18px]  rounded-lg">
+            <span className="font-medium font-Poppins max-w-[500px] text-justify lg:text-[18px] tracking-widest 2xl:text-[18px]  rounded-lg">
               Click the Arrow!
             </span>
             <a href="true" onClick={handleClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                enableBackground="new 0 0 1792 1792"
-                version="1.1"
-                viewBox="0 0 1792 1792"
-                xmlSpace="preserve"
-                className="w-[25px] h-[25px] 2xl:w-[30px] 2xl:h-[30px] animate-bounce fill-[#000000]"
+                class="bi bi-caret-down-fill w-[25px] h-[25px] 2xl:w-[30px] 2xl:h-[30px] animate-bounce fill-[#000000]"
+                viewBox="0 0 16 16"
               >
-                <path d="M983.3 1532.1c-23.2 23.6-55.6 35.9-88.6 33.6-31.9 2.4-63-10-84.6-33.6L261.8 985.8c-45.4-45.4-45.4-119 0-164.4s119-45.4 164.4 0l354.4 354.4V342.1c-.4-63.8 51-115.8 114.8-116.1h.7c64 .4 115.8 52.1 116.1 116.1v833.6l353.7-354.4c45.4-45.4 119-45.4 164.4 0 45.4 45.4 45.4 119 0 164.4l-547 546.4z"></path>
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
               </svg>
             </a>
           </section>
