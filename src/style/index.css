@@ -15,9 +15,10 @@
   src: url("../assets/fonts/Hotlady.ttf");
 }
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
-  background-color: #DCBA62;
+  background-color: #dcba62;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -31,29 +32,70 @@ html, body {
 
 .firstParagraph {
   animation: first 70s linear infinite;
-  
 }
 .secondParagraph {
   animation: second 100s linear infinite;
- 
 }
 .thirdParagraph {
   animation: third 130s linear infinite;
-  
 }
 .fourthParagraph {
   animation: fourth 200s linear infinite;
-  
 }
 
 .loader-title {
-  background-image: radial-gradient(closest-corner, #DCBA62 100%, transparent 0);
+  background-image: radial-gradient(
+    closest-corner,
+    #dcba62 100%,
+    transparent 0
+  );
   background-position: -15%;
   background-repeat: no-repeat;
   background-size: 30px 50px;
-  animation: background-position 2s ease-in-out infinite
+  animation: background-position 2s ease-in-out infinite;
 }
 
+.slick-slider {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-center {
+  transform: scale(1.2);
+  transition: all .7s ease-in-out;
+}
+
+.slick-active {
+  padding: 3em 0;
+}
+
+.slick-slide:not(.slick-active) {
+  padding: 3em 0;
+}
+
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev {
+  display: block;
+  width: 28px;
+  height: 28px;
+  fill: #dcba62;
+}
+
+@media screen and (max-width: 800px) {
+  .slick-arrow.slick-next,
+  .slick-arrow.slick-prev {
+    display: none !important
+  }
+}
+.slick-arrow.slick-prev {
+  left: -5%;
+}
+.slick-arrow.slick-next {
+  right: -5%;
+}
 
 @keyframes background-position {
   0% {
