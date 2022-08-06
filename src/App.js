@@ -1,20 +1,25 @@
-import { Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom'
+import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import HomePage from './components/homepage/homepage'
-import Products from './components/products'
-import ProductItem from './components/products/item'
-import About from './components/about/index'
+// import HomePage from './pages/home'
+// import ProductsPage from "./pages/products";
+import ProductItem from "./pages/item";
+import About from "./pages/about";
+
+import Loader from "./components/loader";
+
+const HomePage = lazy(() => import("./pages/home"));
+const ProductsPage = lazy(() => import("./pages/products"));
 
 function App() {
   return (
     <>
-      <Suspense fallback={<div className='font-Montserrat text-white'>Loading...</div>}>
-        <div className='relative h-screen w-screen bg-[#DCBA62] overflow-x-hidden '>
+      <Suspense fallback={<Loader />}>
+        <div className="relative  ">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/products/:id" element={<Products />}/>
-            <Route path="/products/:id/:category" element={<Products />}/>
+            <Route path="/products/:id" element={<ProductsPage />} />
+            <Route path="/products/:id/:category" element={<ProductsPage />} />
             <Route path="/products/item/:id" element={<ProductItem />} />
             <Route path="/about" element={<About />} />
           </Routes>
@@ -23,6 +28,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
