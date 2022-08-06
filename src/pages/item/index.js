@@ -116,7 +116,7 @@ function Item() {
         <div className="flex flex-col justify-center items-center w-screen h-screen overflow-hidden font-Poppins gap-5">
           <h1>Sorry, this Sneaker's Data is not yet on the Database. </h1>
           <h1>
-            Sorry for the Inconvinience! <span>😭</span>{" "}
+            Sorry for the Inconvenience! <span>😭</span>{" "}
           </h1>
           <h1>
             Click return to go back! <span>👋</span>{" "}
