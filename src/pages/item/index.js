@@ -31,10 +31,10 @@ function Item() {
         <Loader />
       ) : data ? (
         <section className="flex flex-col h-fit bg-black font-Poppins justify-center items-center overflow-x-clip ">
-          <section className="w-screen h-[5em] flex text-white justify-center items-center">
+          <section className="w-[80vw] h-[5em] flex text-white justify-start items-center">
             <a
               href={`javascript:history.go(-1)`}
-              className="w-[80vw] flex flex-row justify-start items-center"
+              className="w-fit flex flex-row justify-start items-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,8 +66,8 @@ function Item() {
                 *Slide image*
               </h6>
             </section>
-            <section className="flex flex-row w-[70vw] justify-between items-center relative">
-              <section className="flex flex-col w-[50%] justify-center items-center relative ">
+            <section className="flex flex-col lg:flex-row w-[70vw]  justify-between items-start lg:items-center relative gap-5">
+              <section className="flex flex-col w-full lg:w-[50%] justify-center items-center relative ">
                 <h1 className="text-[#DCBA62] text-[28px] font-black w-full tracking-widest">
                   DETAILS
                 </h1>
@@ -80,8 +80,8 @@ function Item() {
                   <h3>{`Gender/s: ${data?.gender[0] ?? ""}`}</h3>
                 </section>
               </section>
-              <section className="flex flex-col w-[50%] text-white text-center gap-5">
-                <h1 className="text-[12px] text-[#DCBA62]">Size Range</h1>
+              <section className="flex flex-col w-full lg:w-[50%] text-white text-center gap-5">
+                <h1 className="text-[12px] text-[#DCBA62]">Size Range/Price</h1>
                 <div className="grid grid-cols-4">
                   {data?.sizeRange.length > 0 ? (
                     data?.sizeRange.map((size, index) => (
@@ -98,7 +98,7 @@ function Item() {
                 </div>
               </section>
               <button
-                className="text-white text-end w-[30%] flex flex-row justify-end items-center gap-2 "
+                className="text-white text-end w-full lg:w-[30%] flex flex-row justify-center lg:justify-end items-center gap-2 "
                 onClick={() => alert("Shopping Feature is not yet available")}
               >
                 <h1 className="hover:text-[#DCBA62] hover:scale-105 transform duration-200 relative">{`OPEN STORE 🛒`}</h1>
