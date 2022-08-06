@@ -77,12 +77,12 @@ function ImageCarousel(props) {
             {shoeData.productTemplateExternalPictures.map((item, index) => (
               <section
                 key={index}
-                className=" h-[60vh] lg:h-[60vh] bg-white shadow-2xl outline-none"
+                className=" h-[40%] lg:h-[60vh] bg-white shadow-2xl outline-none "
               >
                 <img
                   src={item}
                   alt="shoeImage"
-                  className="h-[60vh] lg:h-[100%] object-contain "
+                  className="h-[40%] lg:h-[100%] object-fit lg:object-contain "
                 />
               </section>
             ))}
