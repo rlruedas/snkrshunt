@@ -21,7 +21,7 @@ function About() {
             About
           </h1>
           <p className="text-justify w-[80vw] ">
-            Who we are? Snkrhunt is an entertainment / e-commerce(slight) /
+            Who we are? SNKRSHunt is an entertainment / e-commerce(slight) /
             (your) personal sneaker website. Here, we will provide you the only
             interesting contents, which you will like very much. We know you are
             a sneakerhead so let us present and offer you different shoe brands
@@ -41,9 +41,9 @@ function About() {
           <h2 className="text-[25px] font-bold w-[80vw]">WEBSITE DISCLAIMER</h2>
 
           <p className="w-[80vw] text-justify ">
-            The information provided by snkrhunt("we," "us," or "our") on{" "}
-            <a href="https://snkrhunt.vercel.app">
-              https://snkrhunt.vercel.app
+            The information provided by SNKRSHunt("we," "us," or "our") on{" "}
+            <a href="https://snkrshunt.vercel.app">
+              https://snkrshunt.vercel.app
             </a>{" "}
             (thie "Site") is for general informational purposes only. All
             information on the Site is provided in good faith, however we make
