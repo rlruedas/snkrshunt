@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useSearchParams } from "react-router-dom";
-import { releaseYear } from "./data/filters";
+import { releaseYear } from "./utils/filters";
 
 function ReleaseDate() {
   const [urlFilter] =  useSearchParams();
