@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { listOfSizes } from "./utils/filters";
+import { listOfSizes } from "./data/filters";
 import { useParams, useSearchParams } from "react-router-dom";
 
 function ShoeSizes() {

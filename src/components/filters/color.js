@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useSearchParams } from "react-router-dom";
-import { colors } from "./utils/filters";
+import { colors } from "./data/filters";
 
 function Color() {
   const [isPressed, setIsPressed] = useState(false);
