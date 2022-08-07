@@ -62,12 +62,16 @@ const HomeMobileNavBar = () => {
       menuButton.classList.replace("opacity-100", "opacity-0");
       closeButton.classList.replace("hidden", "static");
       closeButton.classList.replace("opacity-0", "opacity-100");
+      document.body.style.setProperty("overflow", "hidden", "important")
+
     } else {
       sideBar.classList.replace("translate-x-[0%]", "translate-x-[100%]");
       menuButton.classList.replace("hidden", "static");
       menuButton.classList.replace("opacity-0", "opacity-100");
       closeButton.classList.replace("static", "hidden");
       closeButton.classList.replace("opacity-100", "opacity-0");
+      document.body.style.setProperty("overflow", "auto", "important")
+
     }
 
     window.addEventListener("scroll", handleScroll, true);
