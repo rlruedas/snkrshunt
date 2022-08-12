@@ -7,6 +7,7 @@ import { getShoeData } from "../../database/api";
 import Loader from "../../components/loader";
 import ImageCarousel from "./imagecarousel";
 import Footer from "../../components/footer";
+import _ from "lodash"
 
 function Item() {
   const [loading, setLoading] = useState(false);
@@ -73,12 +74,12 @@ function Item() {
                     DETAILS
                   </h1>
                   <section className="w-full h-fit text-white opacity-70 tracking-wide">
-                    <h3>{`Brand: ${data?.sizeBrand.toUpperCase() ?? ""}`}</h3>
+                    <h3>{`Brand: ${_.startCase(_.camelCase(data?.sizeBrand))  ?? ""}`}</h3>
                     <h3>{`Nickname: ${data?.nickname ?? ""}`}</h3>
                     <h3>{`Colors: ${data?.details ?? ""}`}</h3>
                     <h3>{`Designer: ${data?.designer ?? ""}`}</h3>
-                    <h3>{`Type: ${data?.productType ?? ""}`}</h3>
-                    <h3>{`Gender/s: ${data?.gender[0] ?? ""}`}</h3>
+                    <h3>{`Type: ${_.startCase(_.camelCase(data?.productType)) ?? ""}`}</h3>
+                    <h3>{`Gender/s: ${_.startCase(_.camelCase(data?.gender[0])) ?? ""}`}</h3>
                   </section>
                 </section>
                 <section className="flex flex-col w-full lg:w-[50%] text-white text-center gap-5">
