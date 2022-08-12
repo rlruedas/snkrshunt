@@ -30,6 +30,7 @@ function Item() {
       {loading ? (
         <Loader />
       ) : data ? (
+        <>
           <section className="flex flex-col w-full min-h-screen bg-black font-Poppins justify-center items-center !overflow-x-clip ">
             <section className="w-[80vw] h-[5em] flex text-white justify-start items-center">
               <a
@@ -112,8 +113,9 @@ function Item() {
                 <span className="opacity-50">{`${data?.story ?? ""} `}</span>
               </h3>
             </section>
-            <Footer />
           </section>
+          <Footer />
+        </>
       ) : (
         <div className="flex flex-col justify-center items-center w-screen h-screen overflow-hidden font-Poppins gap-5">
           <h1>Sorry, this Sneaker's Data is not yet on the Database. </h1>
