@@ -30,7 +30,7 @@ function Item() {
       {loading ? (
         <Loader />
       ) : data ? (
-        <section className="flex flex-col h-fit bg-black font-Poppins justify-center items-center overflow-x-clip ">
+        <section className="flex flex-col w-screen h-screen bg-black font-Poppins justify-center items-center overflow-x-clip ">
           <section className="w-[80vw] h-[5em] flex text-white justify-start items-center">
             <a
               href={`javascript:history.go(-1)`}
