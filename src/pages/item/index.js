@@ -31,7 +31,7 @@ function Item() {
         <Loader />
       ) : data ? (
         <>
-          <section className="flex flex-col w-screen h-screen bg-black font-Poppins justify-center items-center overflow-x-clip ">
+          <section className="flex flex-col w-screen h-fit bg-black font-Poppins justify-center items-center overflow-x-clip ">
             <section className="w-[80vw] h-[5em] flex text-white justify-start items-center">
               <a
                 href={`javascript:history.go(-1)`}
@@ -53,7 +53,7 @@ function Item() {
                 <h1>Return</h1>
               </a>
             </section>
-            <section className=" h-fit items-center flex flex-col gap-8 pb-[5em] ">
+            <section className="w-screen h-fit items-center flex flex-col gap-8 pb-[5em] ">
               <section className="w-[80vw]">
                 <h1 className="w-[90%] text-[#DCBA62] font-extrabold text-[30px] ">
                   {data?.name ?? ""}
