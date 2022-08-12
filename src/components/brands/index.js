@@ -21,7 +21,7 @@ function Brands() {
       className="relative w-screen h-fit bg-black text-white py-[5em]"
       id="brands"
     >
-      <div className="bg-BrandPageBG bg-cover bg-bottom w-screen min-h-screen absolute bottom-0 z-0 opacity-50 overflow-clip"></div>
+      <div className="bg-BrandPageBG bg-cover bg-bottom w-screen min-h-fit absolute bottom-0 z-0 opacity-50 overflow-clip"></div>
       <div className="relative flex flex-col justify-center items-center  z-10">
         <section className="relative flex flex-col w-[70%] h-fit gap-[2em] justify-center items-start">
           <h1 className="font-extrabold font-Poppins text-[20px] sm:text-[30px] lg:text-[50px] text-[#DCBA62]">
