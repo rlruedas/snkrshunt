@@ -92,7 +92,7 @@ function ImageCarousel(props) {
         <>
           <img
             src={shoeData.mainPictureUrl}
-            alt="no-image"
+            alt="no-data"
             className="bg-white rounded-sm w-[60vw] h-[60vh] object-contain"
           />
         </>

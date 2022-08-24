@@ -7,7 +7,7 @@ import { getShoeData } from "../../database/api";
 import Loader from "../../components/loader";
 import ImageCarousel from "./imagecarousel";
 import Footer from "../../components/footer";
-import _ from "lodash"
+import _ from "lodash";
 
 function Item() {
   const [loading, setLoading] = useState(false);
@@ -34,8 +34,8 @@ function Item() {
         <>
           <section className="flex flex-col w-full min-h-screen bg-black font-Poppins justify-center items-center !overflow-x-clip ">
             <section className="w-[80vw] h-[5em] flex text-white justify-start items-center">
-              <a
-                href={`javascript:history.go(-1)`}
+              <button
+                onClick={() => window.history.back()}
                 className="w-fit flex flex-row justify-start items-center"
               >
                 <svg
@@ -52,7 +52,7 @@ function Item() {
                   />
                 </svg>
                 <h1>Return</h1>
-              </a>
+              </button>
             </section>
             <section className="w-screen h-fit items-center flex flex-col gap-8 pb-[5em] ">
               <section className="w-[80vw]">
@@ -74,12 +74,18 @@ function Item() {
                     DETAILS
                   </h1>
                   <section className="w-full h-fit text-white opacity-70 tracking-wide">
-                    <h3>{`Brand: ${_.startCase(_.camelCase(data?.sizeBrand))  ?? ""}`}</h3>
+                    <h3>{`Brand: ${
+                      _.startCase(_.camelCase(data?.sizeBrand)) ?? ""
+                    }`}</h3>
                     <h3>{`Nickname: ${data?.nickname ?? ""}`}</h3>
                     <h3>{`Colors: ${data?.details ?? ""}`}</h3>
                     <h3>{`Designer: ${data?.designer ?? ""}`}</h3>
-                    <h3>{`Type: ${_.startCase(_.camelCase(data?.productType)) ?? ""}`}</h3>
-                    <h3>{`Gender/s: ${_.startCase(_.camelCase(data?.gender[0])) ?? ""}`}</h3>
+                    <h3>{`Type: ${
+                      _.startCase(_.camelCase(data?.productType)) ?? ""
+                    }`}</h3>
+                    <h3>{`Gender/s: ${
+                      _.startCase(_.camelCase(data?.gender[0])) ?? ""
+                    }`}</h3>
                   </section>
                 </section>
                 <section className="flex flex-col w-full lg:w-[50%] text-white text-center gap-5">
@@ -126,8 +132,8 @@ function Item() {
           <h1>
             Click return to go back! <span>👋</span>{" "}
           </h1>
-          <a
-            href={`javascript:history.go(-1)`}
+          <button
+            onClick={() => window.history.back()}
             className="w-fit flex flex-row justify-start items-center"
           >
             <svg
@@ -144,7 +150,7 @@ function Item() {
               />
             </svg>
             <h1>Return</h1>
-          </a>
+          </button>
         </div>
       )}
     </>

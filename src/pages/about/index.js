@@ -3,7 +3,7 @@ import React from "react";
 function About() {
   return (
     <>
-      <section className="flex justify-center backdrop-blur-xl items-center w-screen h-[5em] sticky top-0 ">
+      <section className="flex justify-center backdrop-blur-xl items-center w-full h-[5em] sticky top-0 ">
         <section className="flex flex-row justify-between items-center w-[60vw] ">
           <img
             src={require("../../assets/webp/logo.webp")}
@@ -15,8 +15,8 @@ function About() {
           </a>
         </section>
       </section>
-      <section className="w-screen h-fit flex flex-col justify-center items-center font-Poppins gap-[3em] p-8">
-        <section className="flex flex-col w-screen h-fit justify-center items-center gap-[3em]">
+      <section className="w-full h-fit flex flex-col justify-center items-center font-Poppins gap-[3em] p-8">
+        <section className="flex flex-col w-full h-fit justify-center items-center gap-[3em]">
           <h1 className="font-bold tracking-wider text-[70px] w-[80vw] ">
             About
           </h1>
@@ -33,7 +33,7 @@ function About() {
             snkr.hunt@gmail.com{" "}
           </p>
         </section>
-        <section className="flex flex-col justify-center items-center w-screen h-fit gap-[3em]">
+        <section className="flex flex-col justify-center items-center w-full h-fit gap-[3em]">
           <h1 className="text-[50px] font-bold w-[80vw]">DISCLAIMER</h1>
 
           <p className="w-[80vw] text-justify">Last updated August 03, 2022</p>
