@@ -19,6 +19,8 @@ function Products() {
     return Array.from({ length: numOfPages }, (v, i) => i + 1);
   }, [numOfPages]);
 
+  //This Filters need some refactoring.
+  // The body request goes like this "requests": [{ "indexName": `${indexName}`, "params": `${params}` }] base on GOATs API
   let shoeSizeFilter = urlFilters.get(`size_us_${urlParams.category}`)
     ? `,["size_us_${urlParams.category}:${urlFilters.get(
         `size_us_${urlParams.category}`
@@ -32,7 +34,6 @@ function Products() {
     : "";
   let query = urlFilters.get("query") ?? "";
 
-  // filter parameters
   let facetFilters = `&facetFilters=[${
     urlParams.category ? `["single_gender:` + urlParams.category + `"],` : ""
   }["brand_name:${
@@ -41,8 +42,11 @@ function Products() {
 
   let indexName = "product_variants_v2";
   let params = useMemo(() => {
+    /* I limited the pages to 5 only, when you clicked on the fifth page it shows.
+     but when go to another brand that has only 1 
+     state of page stay on the fifth page so it shows blank. */
     if (numOfPages === 1) setPageNumber(0);
-    
+
     return `query=${query}&distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&filters=${facetFilters}`;
   }, [facetFilters, pageNumber, numOfPages, query]);
 
