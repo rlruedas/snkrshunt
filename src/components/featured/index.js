@@ -1,9 +1,8 @@
 import React from "react";
 
 import ItemsCarousel from "./itemscarousel";
-import Zoom from "react-reveal";
 
-function FeaturedProducts() {
+const Featured = () => {
   return (
     <>
       <div className="flex flex-col w-screen min-h-screen overflow-x-clip justify-center items-center gap-6 bg-white">
@@ -20,16 +19,14 @@ function FeaturedProducts() {
           </section>
         </section>
         <section className="flex flex-1 flex-col w-screen justify-center items-end">
-          <Zoom>
-            <section className="flex flex-row justify-center items-center mr-[2em] sm:mr-[5em]">
-              <span className="font-black font-Poppins text-[30px] sm:text-[50px] md:text-[60px] lg:text-[80px]  tracking-[.2em] sm:self-end text-[#DCBA62]">
-                WHAT'S HOT
-              </span>
-              <span className="text-[30px] md:text-[40px] lg:text-[70px]">
-                🔥
-              </span>
-            </section>
-          </Zoom>
+          <section className="flex flex-row justify-center items-center mr-[2em] sm:mr-[5em]">
+            <span className="font-black font-Poppins text-[30px] sm:text-[50px] md:text-[60px] lg:text-[80px]  tracking-[.2em] sm:self-end text-[#DCBA62]">
+              WHAT'S HOT
+            </span>
+            <span className="text-[30px] md:text-[40px] lg:text-[70px]">
+              🔥
+            </span>
+          </section>
           <ItemsCarousel />
         </section>
         <section className=" flex flex-col flex-[1_1_0%] w-screen justify-center items-center ">
@@ -53,6 +50,6 @@ function FeaturedProducts() {
       </div>
     </>
   );
-}
+};
 
-export default FeaturedProducts;
+export default Featured;

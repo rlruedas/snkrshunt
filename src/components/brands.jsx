@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Brands() {
+const Brands = () => {
   const [hover, setHover] = useState(true);
   const [rand, setRandom] = useState();
   const emojis = ["😁", "😍", "😵", "🤐", "🥵", "🥳", "🙈", "🙉", "🙊"];
@@ -14,8 +14,6 @@ function Brands() {
     setHover(true);
   };
 
-
-  
   return (
     <div
       className="relative w-screen min-h-fit bg-black text-white py-[5em]"
@@ -38,7 +36,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/adidas.png")}
+                src={require("../assets/png/shoebrands/adidas.png")}
                 alt="adidasImage"
                 className="w-[50px] h-[50px]"
               />
@@ -51,7 +49,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/nike.png")}
+                src={require("../assets/png/shoebrands/nike.png")}
                 alt="nikeImage"
                 className="w-[50px] h-[50px]"
               />
@@ -64,7 +62,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/jordan.png")}
+                src={require("../assets/png/shoebrands/jordan.png")}
                 alt="nikeImage"
                 className="w-[50px] h-[50px]"
               />
@@ -77,7 +75,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/champion.png")}
+                src={require("../assets/png/shoebrands/champion.png")}
                 alt="championImage"
                 className="w-[50px] h-[50px]"
               />
@@ -89,7 +87,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/new-balance.png")}
+                src={require("../assets/png/shoebrands/new-balance.png")}
                 alt="newbalanceImage"
                 className="w-[50px] h-[50px]"
               />
@@ -101,7 +99,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/asics.png")}
+                src={require("../assets/png/shoebrands/asics.png")}
                 alt="asics"
                 className="w-[50px] h-[50px]"
               />
@@ -113,7 +111,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/puma.png")}
+                src={require("../assets/png/shoebrands/puma.png")}
                 alt="puma"
                 className="w-[50px] h-[50px]"
               />
@@ -125,7 +123,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/vans.png")}
+                src={require("../assets/png/shoebrands/vans.png")}
                 alt="vans"
                 className="w-[50px] h-[50px]"
               />
@@ -137,7 +135,7 @@ function Brands() {
               onMouseLeave={(e) => handleHover(e)}
             >
               <img
-                src={require("../../assets/png/shoebrands/onitsuka-tiger.png")}
+                src={require("../assets/png/shoebrands/onitsuka-tiger.png")}
                 alt="onitsuka-tiger"
                 className="w-[50px] h-[50px]"
               />
@@ -150,6 +148,6 @@ function Brands() {
       </div>
     </div>
   );
-}
+};
 
 export default Brands;

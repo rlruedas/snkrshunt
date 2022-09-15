@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-import { getProducts } from "../../database/api";
+import { getProducts } from "../database/api";
 
-import { ProductsNavBar } from "../../components/navbars";
+import { ProductsNavBar } from "../components/navbars";
+import { setProductQueryString } from "../utils/querystring";
 
-import Footer from "../../components/footer";
-import Filters from "../../components/filters";
+import Footer from "../components/footer";
+import Filters from "../components/filters";
 import MoonLoader from "react-spinners/MoonLoader";
 
 function Products() {
@@ -13,42 +14,14 @@ function Products() {
   const [data, setData] = useState([]);
   const [numOfPages, setNumOfPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(0);
-  const [urlFilters] = useSearchParams(); //get the url query filter
-  const urlParams = useParams(); //get url category
+  const [urlFilters] = useSearchParams();
+  const urlParams = useParams();
+
   const indexPages = useMemo(() => {
     return Array.from({ length: numOfPages }, (v, i) => i + 1);
   }, [numOfPages]);
 
-  //This Filters need some refactoring.
-  // The body request goes like this "requests": [{ "indexName": `${indexName}`, "params": `${params}` }] base on GOATs API
-  let shoeSizeFilter = urlFilters.get(`size_us_${urlParams.category}`)
-    ? `,["size_us_${urlParams.category}:${urlFilters.get(
-        `size_us_${urlParams.category}`
-      )}"]`
-    : "";
-  let colorFilter = urlFilters.get(`color`)
-    ? `,["color:${urlFilters.get(`color`)}"]`
-    : "";
-  let numericFilters = urlFilters.get(`release_year`)
-    ? `,["release_year:${urlFilters.get(`release_year`)}"]`
-    : "";
-  let query = urlFilters.get("query") ?? "";
-
-  let facetFilters = `&facetFilters=[${
-    urlParams.category ? `["single_gender:` + urlParams.category + `"],` : ""
-  }["brand_name:${
-    urlParams.id
-  }"],["product_type:sneakers"]${colorFilter}${shoeSizeFilter}${numericFilters}]`;
-
-  let indexName = "product_variants_v2";
-  let params = useMemo(() => {
-    /* I limited the pages to 5 only, when you clicked on the fifth page it shows.
-     but when go to another brand that has only 1 
-     state of page stay on the fifth page so it shows blank. */
-    if (numOfPages === 1) setPageNumber(0);
-
-    return `query=${query}&distinct=true&hitsPerPage=40&maxValuesPerFacet=40&page=${pageNumber}&filters=${facetFilters}`;
-  }, [facetFilters, pageNumber, numOfPages, query]);
+  const filter = setProductQueryString({ urlFilters, urlParams, pageNumber });
 
   const onNextPage = () => {
     pageNumber < indexPages.slice(0, 5).length - 1
@@ -64,20 +37,23 @@ function Products() {
 
   useEffect(() => {
     setLoading(true);
+    if (numOfPages === 1) setPageNumber(0);
 
-    getProducts(indexName, params).then((data) => {
-      setData(data?.hits);
-      setNumOfPages(Number(data?.nbPages));
-      setLoading(false);
+    getProducts(filter).then((data) => {
+      if (data) {
+        setData(data?.hits);
+        setNumOfPages(Number(data?.nbPages));
+        setLoading(false);
+      }
     });
-  }, [indexName, params]);
+  }, [filter]);
 
   return (
     <>
       <span className="flex flex-col relative overflow-x-clip ">
         <ProductsNavBar category={urlParams.category} />
         <section className="flex flex-row relative w-screen justify-center items-start ">
-          <Filters category={urlParams.category} />
+          <Filters />
           <section className="brand-title flex flex-col w-[90vw] justify-center items-center font-Poppins pt-[5em] md:pt-0 z-0">
             <section className="w-[90%] pt-[.5em] my-5">
               <a
@@ -102,7 +78,7 @@ function Products() {
                     <img
                       src={
                         item.main_picture_url.match("missing")
-                          ? require("../../assets/png/no-image.png")
+                          ? require("../assets/png/no-image.png")
                           : item.main_picture_url
                       }
                       alt="productImage"

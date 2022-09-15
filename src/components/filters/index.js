@@ -11,7 +11,6 @@ import ClearFilter from "./clearfilter";
 function Filters() {
   const size = useWindowDimension();
   const [urlFilter] = useSearchParams();
- 
 
   useEffect(() => {
     const parentContainer = document.querySelector(".filter-wrapper");

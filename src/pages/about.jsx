@@ -6,7 +6,7 @@ function About() {
       <section className="flex justify-center backdrop-blur-xl items-center w-full h-[5em] sticky top-0 ">
         <section className="flex flex-row justify-between items-center w-[60vw] ">
           <img
-            src={require("../../assets/webp/logo.webp")}
+            src={require("../assets/webp/logo.webp")}
             alt="logo"
             className="w-[80px] h-[80px]"
           />{" "}

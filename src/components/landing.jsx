@@ -1,6 +1,6 @@
 import React from "react";
 
-function Landingpage() {
+const Landing = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -49,6 +49,6 @@ function Landingpage() {
       </div>
     </>
   );
-}
+};
 
-export default Landingpage;
+export default Landing;

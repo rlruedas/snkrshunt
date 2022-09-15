@@ -1,21 +1,19 @@
 const axios = require("axios");
 
-// I made an API that fetches data from another API coming from the goats API because I'm experiencing CORS policy issue
-
 const apiBaseURL = "https://snkrhunt-db.herokuapp.com";
+const indexName = "product_variants_v2";
 
-const getProducts = async (indexName, params) => {
+const getProducts = async (query) => {
   let data = [];
-
-  let apiLink = `${apiBaseURL}/products`; //
+  let apiLink = `${apiBaseURL}/products`;
 
   try {
     const response = await axios({
       url: apiLink,
       method: "post",
       data: {
-        indexName: indexName,
-        params: params,
+        indexName,
+        params: query,
       },
     });
 

@@ -6,8 +6,8 @@ import { getShoeData } from "../../database/api";
 
 import Loader from "../../components/loader";
 import ImageCarousel from "./imagecarousel";
-import Footer from "../../components/footer";
 import _ from "lodash";
+import Footer from "../../components/footer";
 
 function Item() {
   const [loading, setLoading] = useState(false);
