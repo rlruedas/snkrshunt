@@ -14,21 +14,21 @@ Work directly with your cloned repo
 git clone https://github.com/<YOUR_GITHUB_USERNAME>/SNKRHunt.git
 ```
 ## Installation
-After you cloned your own forked repository on your local directory. You can check for the latest dependency packages created using npm.
+After you cloned your own forked repository on your local directory. You can check for the latest dependency packages created using Yarn.
 
-1. Check for outdated dependency packages
+1. Install the dependencies
+```
+yarn install
+```
+2. To update the dependencies
 
 ```
-npm outdated
+yarn up [package]
+yarn up [package]@latest
 ```
-2. Install the latest packages 
-```
-npm install packages@latest
-```
-
 ## Scripts
 - In the project directory you can run:
-`npm run start` to start the app in development mode
+`yarn run start` to start the app in development mode
 - Open [http://localhost:3000](http://localhost:3000) or [http://127.0.0.1](http://127.0.0.1:3000)
 
 # Contributing
